@@ -1,0 +1,99 @@
+a {
+    color: inherit;
+}
+.container-fluid {
+    padding: 0;
+}
+.nav-link {
+    min-width: 100px;
+    text-align: center;
+}
+a:hover {
+    color: inherit;
+}
+header {
+    max-width: 1140px;
+}
+.to-top {
+    font-size: 40px;
+    display: none;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    text-align: center;
+    line-height: 40px;
+    background: #999;
+    color: #fff;
+}
+.to-top a {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+}
+.to-top:hover {
+    background: #777;
+}
+#scroll-nav {
+    position: fixed;
+    top: 0;
+    display: none;
+    width: 100%;
+    background: rgba(255, 255, 255, .95);
+    box-shadow: 0 2px 8px #f0f1f2;
+}
+#scroll-navbar {
+    max-width: 1140px;
+    margin: auto;
+}
+#scroll-navbar .active {
+    background: #2db7f5;
+}
+.content {
+    margin: auto;
+    max-width: 1140px;
+}
+.navbar-light .navbar-toggler {
+    border: none;
+}
+.show-panel {
+    /* background-image: url(./background.jpg);
+    background-position: center; */
+    height: 600px;
+}
+
+@media (min-width: 992px) {
+    @keyframes hover {
+        from {
+            width: 0
+        }
+        to {
+            width: 84px;
+        }
+    }
+    .navbar-nav .nav-item:hover ::after {
+        animation: hover .5s forwards;
+    }
+    .navbar-nav .nav-item ::after {
+        content: '';
+        height: 3px;
+        bottom: 0;
+        position: absolute;
+        text-align: center;
+        display: block;
+        background: #2db7f5;
+    }
+}
+
+@media (max-width: 992px) {
+    .navbar-nav .nav-item:hover {
+        background: #2db7f5;
+        color: #fff;
+    }
+    .navbar-nav .active {
+        background: #fff !important;
+        color: #2b85e4 !important;
+    }
+    .navbar-nav a {
+        color: inherit !important;
+    }
+}

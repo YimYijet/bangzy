@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "esnext",
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
+        "sourceMap": true,
+        "removeComments": false,
+        "rootDirs": ["./src"],
+        "baseUrl": "./src",
+        "paths": {
+            "@/*": ["./*"],
+            "tslib": ["./node_modules/tslib/tslib.d.ts"]
+        },
+        "jsx": "react",
+        "alwaysStrict": true,
+        "noUnusedLocals": true,
+        "importHelpers": true,
+        "experimentalDecorators": true,
+        "lib": ["es7", "dom"],
+        "skipLibCheck": true,
+        "typeRoots": ["node", "node_modules/@types", "./typings"]
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
