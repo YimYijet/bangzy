@@ -8,6 +8,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./common.css">
+    <link rel="stylesheet" href="./index.css">
     <style>
         .color {
             display: inline-block;
@@ -18,7 +19,7 @@
     <title>Document</title>
 </head>
 
-<body style="height: 1000vh;">
+<body>
     <header class="container-fluid">
         <nav id="header-nav" class="navbar navbar-expand-lg navbar-light">
             <a class="navbar-brand" href="#">Navbar</a>
@@ -50,31 +51,31 @@
                 <nav id="scroll-navbar" class="navbar navbar-light">
                     <ul class="nav nav-pills justify-content-between w-100">
                         <li class="nav-item">
-                            <a class="nav-link" href="#fat">
+                            <a class="nav-link" href="#one">
                                 <i class="fa fa-asterisk"></i>
                                 <span></span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#mdo">
+                            <a class="nav-link" href="#two">
                                 <i class="fa fa-birthday-cake"></i>
                                 <span></span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#one">
+                            <a class="nav-link" href="#three">
                                 <i class="fa fa-cogs"></i>
                                 <span></span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#two">
+                            <a class="nav-link" href="#four">
                                 <i class="fa fa-fighter-jet"></i>
                                 <span></span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#three">
+                            <a class="nav-link" href="#five">
                                 <i class="fa fa-globe"></i>
                                 <span></span>
                             </a>
@@ -86,9 +87,13 @@
         <div class="container-fluid">
             <div data-spy="scroll" data-target="#scroll-navbar" data-offset="0">
                 <div class="show-panel">
-                    <div class="content"></div>
+                    <div class="content">
+                        <div class="block-left"></div>
+                        <div class="block-center"></div>
+                        <div class="block-right"></div>
+                    </div>
                 </div>
-                <div id="fat" class="content">
+                <div id="one" class="content">
                     <section>
                         <div class="color-1 color"></div>
                         <div class="color-2 color"></div>
@@ -97,10 +102,42 @@
                         <div class="color-5 color"></div>
                     </section>
                 </div>
-                <div id="mdo" class="content">mdo</div>
-                <div id="one" class="content">one</div>
-                <div id="two" class="content">two</div>
-                <div id="three" class="content">three</div>
+                <div id="two" class="content">
+                    <section>
+                        <div class="color-1 color"></div>
+                        <div class="color-2 color"></div>
+                        <div class="color-3 color"></div>
+                        <div class="color-4 color"></div>
+                        <div class="color-5 color"></div>
+                    </section>
+                </div>
+                <div id="three" class="content">
+                    <section>
+                        <div class="color-1 color"></div>
+                        <div class="color-2 color"></div>
+                        <div class="color-3 color"></div>
+                        <div class="color-4 color"></div>
+                        <div class="color-5 color"></div>
+                    </section>
+                </div>
+                <div id="four" class="content">
+                    <section>
+                        <div class="color-1 color"></div>
+                        <div class="color-2 color"></div>
+                        <div class="color-3 color"></div>
+                        <div class="color-4 color"></div>
+                        <div class="color-5 color"></div>
+                    </section>
+                </div>
+                <div id="five" class="content">
+                    <section>
+                        <div class="color-1 color"></div>
+                        <div class="color-2 color"></div>
+                        <div class="color-3 color"></div>
+                        <div class="color-4 color"></div>
+                        <div class="color-5 color"></div>
+                    </section>
+                </div>
             </div>
         </div>
     </main>

@@ -48,17 +48,8 @@ header {
 #scroll-navbar .active {
     background: #2db7f5;
 }
-.content {
-    margin: auto;
-    max-width: 1140px;
-}
 .navbar-light .navbar-toggler {
     border: none;
-}
-.show-panel {
-    /* background-image: url(./background.jpg);
-    background-position: center; */
-    height: 600px;
 }
 
 @media (min-width: 992px) {

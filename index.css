@@ -1,0 +1,32 @@
+.content {
+    margin: auto;
+    max-width: 1140px;
+    overflow: hidden;
+}
+.show-panel {
+    /* background-image: url(./background.jpg);
+    background-position: center; */
+    height: 600px;
+}
+.block-left {
+    width: 50%;
+    height: 600px;
+    background: #6cf;
+    float: left;
+    transform: skew(45deg);
+}
+.block-center {
+    width: 50%;
+    height: 600px;
+    background: #cf6;
+    position: absolute;
+    left: 25%;
+    transform: skew(45deg);
+}
+.block-right {
+    width: 50%;
+    height: 600px;
+    background: #c6f;
+    float: left;
+    transform: skew(45deg);
+}
