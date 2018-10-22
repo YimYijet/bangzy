@@ -87,7 +87,7 @@
         <div class="container-fluid">
             <div data-spy="scroll" data-target="#scroll-navbar" data-offset="0">
                 <div class="show-panel">
-                    <div class="content">
+                    <div class="content w-100">
                         <div class="block-left"></div>
                         <div class="block-center"></div>
                         <div class="block-right"></div>
@@ -148,7 +148,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script>
-        $(window).scroll(function (e) {
+        $(window).scroll(function(e) {
             if ($(window).scrollTop() > 670) {
                 $('#scroll-nav').show()
                 $('.to-top').show()
@@ -158,6 +158,60 @@
             }
         })
         $('body').scrollspy({ target: '#scroll-navbar' })
+    </script>
+    <script>
+        $('[class^=block]').mouseenter(function(e) {
+            switch($(e.target).attr('class')) {
+                case 'block-left':
+                    $(e.target).css({
+                        'transform': 'skew(45deg) translateX(20vw)',
+                        'transition': 'transform 1s ease 0s'
+                    })
+                break
+                case 'block-right':
+                    $(e.target).css({
+                        'transform': 'skew(-60deg) translateX(-20vw)',
+                        'transition': 'transform 1s ease 0s'
+                    })
+                break
+                case 'block-center':
+                    $('.block-left').css({
+                        'transform': 'skew(45deg) translateX(-10vw)',
+                        'transition': 'transform 1s ease 0s'
+                    })
+                    $('.block-right').css({
+                        'transform': 'skew(-60deg) translateX(10vw)',
+                        'transition': 'transform 1s ease 0s'
+                    })
+                break
+            }
+        })
+        $('[class^=block]').mouseout(function(e) {
+            switch($(e.target).attr('class')) {
+                case 'block-left':
+                    $(e.target).css({
+                        'transform': 'skew(45deg)',
+                        'transition': 'transform 1s ease 0s'
+                    })
+                break
+                case 'block-right':
+                    $(e.target).css({
+                        'transform': 'skew(-60deg)',
+                        'transition': 'transform 1s ease 0s'
+                    })
+                break
+                case 'block-center':
+                    $('.block-left').css({
+                        'transform': 'skew(45deg)',
+                        'transition': 'transform 1s ease 0s'
+                    })
+                    $('.block-right').css({
+                        'transform': 'skew(-60deg)',
+                        'transition': 'transform 1s ease 0s'
+                    })
+                break
+            }
+        })
     </script>
 </body>
 

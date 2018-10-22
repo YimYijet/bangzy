@@ -20,7 +20,7 @@ const extractLess = new ExtractTextPlugin({
 
 const config = {
     entry: {
-        index: path.join(__dirname, '../src/index.tsx')
+        index: path.join(__dirname, '../app/index.tsx')
     },
     output: {
         publicPath: '/',
@@ -31,7 +31,7 @@ const config = {
     resolve: {
         extensions: ['.ts', '.tsx', '.jsx', '.js', '.json'],
         alias: {
-            '@': path.join(__dirname, '..', 'src')
+            '@': path.join(__dirname, '..', 'app')
         }
     },
     module: {
@@ -59,12 +59,12 @@ const config = {
                         })
                     }
                 }],
-                include: path.join(__dirname, '../src'),
+                include: path.join(__dirname, '../app'),
                 exclude: /node_modules/
             },
             {
                 test: /\.css$/,
-                exclude: path.join(__dirname, '../src/styles'),
+                exclude: path.join(__dirname, '../app/styles'),
                 loader: extractCss.extract({
                     use: [{
                         loader: 'css-loader',

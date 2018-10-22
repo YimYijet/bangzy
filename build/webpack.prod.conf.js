@@ -2,6 +2,7 @@ const path = require('path')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
+const ManifestPlugin = require('webpack-manifest-plugin')
 
 const config = {
     plugins: [
@@ -23,7 +24,8 @@ const config = {
             threshold: 10240,
             algorithm: 'gzip',
             deleteOriginalAssets: true,
-        })
+        }),
+        new ManifestPlugin()
     ],
     mode: 'production'
 }

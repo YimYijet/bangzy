@@ -6,8 +6,8 @@
         "allowSyntheticDefaultImports": true,
         "sourceMap": true,
         "removeComments": false,
-        "rootDirs": ["./src"],
-        "baseUrl": "./src",
+        "rootDirs": ["./server"],
+        "baseUrl": "./server",
         "paths": {
             "@/*": ["./*"],
             "tslib": ["./node_modules/tslib/tslib.d.ts"]
@@ -22,7 +22,7 @@
         "typeRoots": ["node", "node_modules/@types", "./typings"]
     },
     "include": [
-        "src/**/*"
+        "server/**/*"
     ],
     "exclude": [
         "node_modules"

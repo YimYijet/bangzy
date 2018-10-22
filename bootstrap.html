@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .wrap {
+            display: flex;
+        }
+
+        .panel {
+            display: inline-flex;
+            width: 50%;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .panel-left {
+            background: #66ccff;
+        }
+
+        .panel-right {
+            background: #ccff66;
+        }
+
+        .selected {
+            animation: selected .5s forwards;
+        }
+
+        .unselected {
+            animation: unselected .5s forwards;
+        }
+
+        .cell a {
+            display: inline-block;
+            border: 1px solid #333;
+            width: 200px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+        }
+
+        @keyframes selected {
+            0% {
+                width: 50%;
+            }
+
+            100% {
+                width: 60%;
+            }
+        }
+
+        @keyframes unselected {
+            0% {
+                width: 60%;
+            }
+
+            100% {
+                width: 50%;
+            }
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="panel panel-left">
+            <div class="cell">
+                <a href="./student.html">考生进入</a>
+            </div>
+        </div>
+        <div class="panel panel-right">
+            <div class="cell">
+                <a href="./teacher.html">教师进入</a>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script>
+        var timer = false
+        $('.wrap').mouseover(function(e) {
+            clearTimeout(timer)
+            timer = setTimeout(function() {
+                var oPanel = e.target
+                if (/panel/.test($(oPanel).attr('class'))) {
+                    if($('.selected').length) {
+                        $('.selected').removeClass('selected').addClass('unselected')
+                    }
+                    return
+                }
+                while (!/panel/.test($(oPanel).attr('class'))) {
+                    oPanel = oPanel.parentNode
+                }
+                $(oPanel).removeClass('unselected').addClass('selected')
+            }, 150)
+        })
+    </script>
+</body>
+
+</html>

@@ -1,125 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        a {
-            text-decoration: none;
-            color: #333;
-        }
-
-        .wrap {
-            display: flex;
-        }
-
-        .panel {
-            display: inline-flex;
-            width: 50%;
-            height: 100vh;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .panel-left {
-            background: #66ccff;
-        }
-
-        .panel-right {
-            background: #ccff66;
-        }
-
-        .selected {
-            animation: selected .5s forwards;
-        }
-
-        .unselected {
-            animation: unselected .5s forwards;
-        }
-
-        .cell a {
-            display: inline-block;
-            border: 1px solid #333;
-            width: 200px;
-            height: 50px;
-            text-align: center;
-            line-height: 50px;
-        }
-
-        @keyframes selected {
-            0% {
-                width: 50%;
-            }
-
-            100% {
-                width: 60%;
-            }
-        }
-
-        @keyframes unselected {
-            0% {
-                width: 60%;
-            }
-
-            100% {
-                width: 50%;
-            }
-        }
-    </style>
     <title>Document</title>
 </head>
-
 <body>
-    <div class="wrap">
-        <div class="panel panel-left">
-            <div class="cell">
-                <a href="./student.html">考生进入</a>
-            </div>
-        </div>
-        <div class="panel panel-right">
-            <div class="cell">
-                <a href="./teacher.html">教师进入</a>
-            </div>
-        </div>
-    </div>
-    <script>
-        var timer = false
-        document.querySelector('.wrap').addEventListener('mouseover', (e) => {
-            clearTimeout(timer)
-            timer = setTimeout(() => {
-                var event = e || window.event, target = event.target || event.srcElement, reg = /panel/
-                var oPanel = null
-                if (reg.test(target.parentElement.getAttribute('class'))) {
-                    oPanel = target.parentElement
-                } else if (reg.test(target.parentElement.parentElement.getAttribute('class'))) {
-                    oPanel = target.parentElement.parentElement
-                } else {
-                    document.querySelectorAll('.selected').forEach(item => {
-                        item.className = item.classList[0] + ' ' + item.classList[1] + ' unselected'
-                    })
-                }
-                if (oPanel) {
-                    document.querySelectorAll('.panel').forEach(item => {
-                        item.className = item.classList[0] + ' ' + item.classList[1]
-                    })
-                    oPanel.className += ' selected'
-                }
-            }, 150)
-        }, false)
-    </script>
+    <div id="app"></div>
 </body>
-
 </html>

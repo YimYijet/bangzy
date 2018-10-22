@@ -2,6 +2,12 @@
     margin: auto;
     max-width: 1140px;
     overflow: hidden;
+    position: relative;
+    height: 100%;
+}
+.w-100 {
+    max-width: 100%;
+    width: 100%;
 }
 .show-panel {
     /* background-image: url(./background.jpg);
@@ -9,24 +15,26 @@
     height: 600px;
 }
 .block-left {
-    width: 50%;
+    width: 100%;
     height: 600px;
     background: #6cf;
-    float: left;
+    position: absolute;
     transform: skew(45deg);
+    left: -66%;
+    z-index: 1;
 }
 .block-center {
-    width: 50%;
+    width: 100%;
     height: 600px;
     background: #cf6;
     position: absolute;
-    left: 25%;
-    transform: skew(45deg);
 }
 .block-right {
-    width: 50%;
+    width: 100%;
     height: 600px;
     background: #c6f;
-    float: left;
-    transform: skew(45deg);
+    position: absolute;
+    transform: skew(-60deg);
+    right: -66%;
+    z-index: 1;
 }

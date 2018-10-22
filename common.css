@@ -24,6 +24,7 @@ header {
     line-height: 40px;
     background: #999;
     color: #fff;
+    border-radius: 4px;
 }
 .to-top a {
     display: inline-block;
