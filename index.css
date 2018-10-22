@@ -5,6 +5,10 @@
     position: relative;
     height: 100%;
 }
+.content h2 {
+    margin: 140px auto 100px;
+    text-align: center;
+}
 .w-100 {
     max-width: 100%;
     width: 100%;

@@ -25,6 +25,7 @@ header {
     background: #999;
     color: #fff;
     border-radius: 4px;
+    z-index: 1090;
 }
 .to-top a {
     display: inline-block;
@@ -41,6 +42,7 @@ header {
     width: 100%;
     background: rgba(255, 255, 255, .95);
     box-shadow: 0 2px 8px #f0f1f2;
+    z-index: 1090;
 }
 #scroll-navbar {
     max-width: 1140px;
