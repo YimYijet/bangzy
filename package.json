@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --model production --progress --config webpack.config.js"
+    "build-client": "webpack --model production --progress --config webpack.config.js",
+    "build": "tsc -p ./server/tsconfig.json",
+    "server": "nodemon ./server/dist/index.js"
   },
   "author": "",
   "license": "ISC",

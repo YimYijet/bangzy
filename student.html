@@ -76,9 +76,30 @@
             <div data-spy="scroll" data-target="#scroll-navbar" data-offset="0">
                 <div class="show-panel">
                     <div class="content w-100">
-                        <div class="block-left"></div>
-                        <div class="block-center"></div>
-                        <div class="block-right"></div>
+                        <div class="block-left">
+                            <h2>
+                                一对一方案
+                            </h2>
+                            <p>
+                                不搞工厂式复制，对考生实行一人一方案
+                            </p>
+                        </div>
+                        <div class="block-center">
+                            <h2>
+                                一对一方案
+                            </h2>
+                            <p>
+                                不搞工厂式复制，对考生实行一人一方案
+                            </p>
+                        </div>
+                        <div class="block-right">
+                            <h2>
+                                一对一方案
+                            </h2>
+                            <p>
+                                不搞工厂式复制，对考生实行一人一方案
+                            </p>
+                        </div>
                     </div>
                 </div>
                 <div id="one" class="content">
@@ -109,12 +130,7 @@
                     <h2>
                         <span>业绩</span>
                     </h2>
-                    <section>
-                        <div class="color-1 color"></div>
-                        <div class="color-2 color"></div>
-                        <div class="color-3 color"></div>
-                        <div class="color-4 color"></div>
-                        <div class="color-5 color"></div>
+                    <section id="map" style="width:100%;height:800px;">
                     </section>
                 </div>
             </div>
@@ -126,6 +142,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.1.0/echarts.min.js"></script>
+    <script src="http://www.echartsjs.com/gallery/vendors/echarts/map/js/china.js"></script>
     <script>
         $(window).scroll(function(e) {
             if ($(window).scrollTop() > 670) {
@@ -139,18 +157,38 @@
         $('body').scrollspy({ target: '#scroll-navbar' })
     </script>
     <script>
-        $('[class^=block]').mouseenter(function(e) {
-            switch($(e.target).attr('class')) {
+        $('[class^=block], [class^=block]>h2, [class^=block]>p').mouseenter(function(e) {
+            var target = e.target
+            while (!/block/.test($(target).attr('class'))) {
+                target = target.parentNode
+            }
+            switch($(target).attr('class')) {
                 case 'block-left':
-                    $(e.target).css({
+                    $('.block-left').css({
                         'transform': 'skew(45deg) translateX(20vw)',
                         'transition': 'transform 1s ease 0s'
                     })
+                    $('.block-left>h2').css({
+                        'right': '25vw',
+                        'transition': 'right 1s ease 0s'
+                    })
+                    $('.block-left>p').css({
+                        'right': '25vw',
+                        'transition': 'right 1s ease 0s'
+                    })
                 break
                 case 'block-right':
-                    $(e.target).css({
+                    $('.block-right').css({
                         'transform': 'skew(-60deg) translateX(-20vw)',
                         'transition': 'transform 1s ease 0s'
+                    })
+                    $('.block-right>h2').css({
+                        'left': '25vw',
+                        'transition': 'left 1s ease 0s'
+                    })
+                    $('.block-right>p').css({
+                        'left': '25vw',
+                        'transition': 'left 1s ease 0s'
                     })
                 break
                 case 'block-center':
@@ -162,21 +200,45 @@
                         'transform': 'skew(-60deg) translateX(10vw)',
                         'transition': 'transform 1s ease 0s'
                     })
+                    $('.block-center>h2').css({
+                        'margin-top': '240px',
+                        'transition': 'margin-top 1s ease 0s'
+                    })
+                    $('.block-center>p').css({
+                        'margin-top': '180px',
+                        'transition': 'margin-top 1s ease 0s'
+                    })
                 break
             }
         })
         $('[class^=block]').mouseout(function(e) {
             switch($(e.target).attr('class')) {
                 case 'block-left':
-                    $(e.target).css({
+                    $('.block-left').css({
                         'transform': 'skew(45deg)',
                         'transition': 'transform 1s ease 0s'
                     })
+                    $('.block-left>h2').css({
+                        'right': '14vw',
+                        'transition': 'right 1s ease 0s'
+                    })
+                    $('.block-left>p').css({
+                        'right': '60vw',
+                        'transition': 'right 1s ease 0s'
+                    })
                 break
                 case 'block-right':
-                    $(e.target).css({
+                    $('.block-right').css({
                         'transform': 'skew(-60deg)',
                         'transition': 'transform 1s ease 0s'
+                    })
+                    $('.block-right>h2').css({
+                        'left': '17vw',
+                        'transition': 'left 1s ease 0s'
+                    })
+                    $('.block-right>p').css({
+                        'left': '60vw',
+                        'transition': 'left 1s ease 0s'
                     })
                 break
                 case 'block-center':
@@ -188,9 +250,72 @@
                         'transform': 'skew(-60deg)',
                         'transition': 'transform 1s ease 0s'
                     })
+                    $('.block-center>h2').css({
+                        'margin-top': '200px',
+                        'transition': 'margin-top 1s ease 0s'
+                    })
+                    $('.block-center>p').css({
+                        'margin-top': '-20px',
+                        'transition': 'margin-top 1s ease 0s'
+                    })
                 break
             }
         })
+    </script>
+    <script>
+        function getRegions(data) {
+            var result = []
+            for (var i = 0; i < data.length; i++) {
+                result.push({
+                    name: data[i],
+                    itemStyle: {
+                        areaColor: '#a6c84c',
+                        borderColor: '#7687a2'
+                    },
+                    emphasis:{
+                        label: {
+                            color: '#fff'
+                        },
+                        itemStyle: {
+                            areaColor: '#46bee9',
+                        },
+                    },
+                })
+            }
+            return result
+        }
+        var mapChart = echarts.init(document.getElementById('map')), data = ['江苏', '山东', '河南', '安徽']
+        var option = {
+            backgroundColor: '#404a59',
+            legend: {
+                orient: 'vertical',
+                left: '50%',
+                data: ['业务范围', '拓展中'],
+                textStyle: {
+                    color: '#fff'
+                }
+            },
+            geo: {
+                map: 'china',
+                roam: false,
+                itemStyle: {
+                    areacolor: '#fff',
+                    color: '#323c48',
+                    borderColor: '#404a59'
+                },
+                emphasis:{
+                    label: {
+                        color: '#fff'
+                    },
+                    itemStyle: {
+                        areaColor: '#2a333d',
+                    },
+                },
+                regions: getRegions(data)
+            },
+            color: ['#e0ffff', '#006edd']
+        }
+        mapChart.setOption(option)
     </script>
 </body>
 

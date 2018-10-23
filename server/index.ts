@@ -2,6 +2,7 @@ import * as Koa from 'koa'
 import * as http from 'http'
 import * as https from 'https'
 import * as logger from 'koa-logger'
+import * as serve from 'koa-static'
 import * as views from 'koa-views'
 import * as path from 'path'
 import * as bodyParser from 'koa-bodyParser'
@@ -11,7 +12,11 @@ const app = new Koa()
 
 app.use(logger())
 
-app.use(bodyParser)
+app.use(bodyParser())
+
+app.use(serve('./'))
+
+app.use(serve(path.join(__dirname, '../')))
 
 app.use(views(path.join(__dirname, './dist')))
 
