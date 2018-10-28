@@ -12,14 +12,14 @@ a:hover {
     color: inherit;
 }
 header {
-    max-width: 1140px;
+    max-width: 1200px;
 }
 .to-top {
     font-size: 40px;
     display: none;
     position: fixed;
     bottom: 50px;
-    right: 10px;
+    right: 50px;
     text-align: center;
     line-height: 40px;
     background: #999;
