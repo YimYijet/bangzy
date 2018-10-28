@@ -11,9 +11,57 @@
     <link rel="stylesheet" href="./index.css">
     <style>
         .color {
-            display: inline-block;
-            width: 100px;
-            height: 500px;
+            height: 300px;
+            margin: 5px;
+        }
+        .color-1 {
+            background: #6cf;
+        }
+        .color-2 {
+            background: #6fc;
+        }
+        .color-3 {
+            background: #fc6;
+        }
+        .color-4 {
+            background: #f6c;
+        }
+        .color-5 {
+            background: #cf6;
+        }
+        .color-cell {
+            position: relative;
+        }
+        .color-cell, .color-cell :last-child, .color-cell :first-child {
+            height: 300px;
+        }
+        .color-cell:nth-of-type(odd) :first-child {
+            width: 50%;
+            transform: skew(-30deg) translateX(-40%);
+            z-index: 1;
+            position: absolute;
+        }
+        .color-cell:nth-of-type(even) :last-child {
+            width: 50%;
+            transform: skew(-30deg) translateX(140%);
+            z-index: 1;
+            position: absolute;
+            top: 0;
+        }
+        .color-cell-1 :first-child{
+            background: #6cf;
+        }
+        .color-cell-2 :last-child{
+            background: #6fc;
+        }
+        .color-cell-3 :first-child{
+            background: #fc6;
+        }
+        .color-cell-4 :last-child{
+            background: #f6c;
+        }
+        .color-cell-5 :first-child{
+            background: #cf6;
         }
     </style>
     <title>Document</title>
@@ -102,31 +150,67 @@
                         </div>
                     </div>
                 </div>
-                <div id="one" class="content">
+                <div id="one" class="content" style="padding-bottom: 100px; overflow: initial;">
                     <h2>
                         <span>核心</span>
                     </h2>
-                    <section>
-                        <div class="color-1 color"></div>
-                        <div class="color-2 color"></div>
-                        <div class="color-3 color"></div>
-                        <div class="color-4 color"></div>
-                        <div class="color-5 color"></div>
+                    <section class="container" style="margin-top: 120px">
+                        <div style="background: var(--info);
+                        width: 50vw;
+                        height: 700px;
+                        position: absolute;
+                        transform: translate(calc(-50vw + 570px), -50px);"></div>
+                        <div class="row">
+                            <div class="col-7" style="padding: 0">
+                                <div class="color-1 color"></div>
+                            </div>
+                            <div class="col-5" style="padding: 0">
+                                <div class="color-2 color"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4" style="padding: 0">
+                                <div class="color-3 color"></div>
+                            </div>
+                            <div class="col-4" style="padding: 0">
+                                <div class="color-4 color"></div>
+                            </div>
+                            <div class="col-4" style="padding: 0">
+                                <div class="color-5 color"></div>
+                            </div>
+                        </div>
                     </section>
                 </div>
-                <div id="two" class="content">
+                <hr/>
+                <div id="two" class="content" style="padding-bottom: 100px">
                     <h2>
                         <span>优势</span>
                     </h2>
                     <section>
-                        <div class="color-1 color"></div>
-                        <div class="color-2 color"></div>
-                        <div class="color-3 color"></div>
-                        <div class="color-4 color"></div>
-                        <div class="color-5 color"></div>
+                        <div class="color-cell-1 color-cell">
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <div class="color-cell-2 color-cell">
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <div class="color-cell-3 color-cell">
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <div class="color-cell-4 color-cell">
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <div class="color-cell-5 color-cell">
+                            <div></div>
+                            <div></div>
+                        </div>
                     </section>
                 </div>
-                <div id="three" class="content">
+                <hr/>
+                <div id="three" class="content" style="padding-bottom: 100px">
                     <h2>
                         <span>业绩</span>
                     </h2>
@@ -172,6 +256,9 @@
                         'right': '25vw',
                         'transition': 'right 1s ease 0s'
                     })
+                    $('.block-right>h2, .block-center>h2').css({
+                        'display': 'none'
+                    })
                     $('.block-left>p').css({
                         'right': '25vw',
                         'transition': 'right 1s ease 0s'
@@ -185,6 +272,9 @@
                     $('.block-right>h2').css({
                         'left': '25vw',
                         'transition': 'left 1s ease 0s'
+                    })
+                    $('.block-left>h2, .block-center>h2').css({
+                        'display': 'none'
                     })
                     $('.block-right>p').css({
                         'left': '25vw',
@@ -204,6 +294,9 @@
                         'margin-top': '240px',
                         'transition': 'margin-top 1s ease 0s'
                     })
+                    $('.block-right>h2, .block-left>h2').css({
+                        'display': 'none'
+                    })
                     $('.block-center>p').css({
                         'margin-top': '180px',
                         'transition': 'margin-top 1s ease 0s'
@@ -222,9 +315,12 @@
                         'right': '14vw',
                         'transition': 'right 1s ease 0s'
                     })
+                    $('.block-right>h2, .block-center>h2').css({
+                        'display': 'block'
+                    })
                     $('.block-left>p').css({
                         'right': '60vw',
-                        'transition': 'right 1s ease 0s'
+                        'transition': 'left 1s ease 0s'
                     })
                 break
                 case 'block-right':
@@ -235,6 +331,9 @@
                     $('.block-right>h2').css({
                         'left': '17vw',
                         'transition': 'left 1s ease 0s'
+                    })
+                    $('.block-left>h2, .block-center>h2').css({
+                        'display': 'block'
                     })
                     $('.block-right>p').css({
                         'left': '60vw',
@@ -249,6 +348,9 @@
                     $('.block-right').css({
                         'transform': 'skew(-60deg)',
                         'transition': 'transform 1s ease 0s'
+                    })
+                    $('.block-right>h2, .block-left>h2').css({
+                        'display': 'block'
                     })
                     $('.block-center>h2').css({
                         'margin-top': '200px',
@@ -274,6 +376,7 @@
                     },
                     emphasis:{
                         label: {
+                            show: false,
                             color: '#fff'
                         },
                         itemStyle: {
@@ -305,6 +408,7 @@
                 },
                 emphasis:{
                     label: {
+                        show: false,
                         color: '#fff'
                     },
                     itemStyle: {
