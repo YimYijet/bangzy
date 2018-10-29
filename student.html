@@ -89,7 +89,7 @@
         </nav>
     </header>
     <main>
-        <div class="d-sm-none d-md-block">
+        <div class="d-sm-none d-md-block d-none">
             <div class="to-top">
                 <a href="#">
                     <i class="fa fa-caret-up"></i>
@@ -98,6 +98,12 @@
             <div id="scroll-nav" class="container-fluid">
                 <nav id="scroll-navbar" class="navbar navbar-light">
                     <ul class="nav nav-pills justify-content-between w-100">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#zero">
+                                <i class="fa fa-asterisk"></i>
+                                <span>优势</span>
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#one">
                                 <i class="fa fa-asterisk"></i>
@@ -123,66 +129,72 @@
         <div class="container-fluid">
             <div data-spy="scroll" data-target="#scroll-navbar" data-offset="0">
                 <div class="show-panel">
-                    <div class="content w-100">
+                    <picture></picture>
+                </div>
+                <div id="zero" class="content w-1200">
+                    <h2>
+                        <span>优势</span>
+                    </h2>
+                    <section class="trans-panel">
                         <div class="block-left">
                             <h2>
                                 一对一方案
                             </h2>
                             <p>
-                                不搞工厂式复制，对考生实行一人一方案
+                                不搞工厂复制，对考生一对一
                             </p>
                         </div>
                         <div class="block-center">
                             <h2>
-                                一对一方案
+                                大数据分析
                             </h2>
                             <p>
-                                不搞工厂式复制，对考生实行一人一方案
+                                五年高考数据，专业数据分析
                             </p>
                         </div>
                         <div class="block-right">
                             <h2>
-                                一对一方案
+                                实时更新
                             </h2>
                             <p>
-                                不搞工厂式复制，对考生实行一人一方案
+                                观察最新动态，给你最好的未来
                             </p>
                         </div>
-                    </div>
+                    </section>
                 </div>
                 <div id="one" class="content" style="padding-bottom: 100px; overflow: initial;">
                     <h2>
                         <span>核心</span>
                     </h2>
-                    <section class="container" style="margin-top: 120px">
-                        <div style="background: var(--info);
-                        width: 50vw;
-                        height: 800px;
-                        position: absolute;
-                        transform: translate(calc(-50vw + 572px), -50px);"></div>
+                    <div style="background: var(--info);
+                    width: 50vw;
+                    height: 800px;
+                    position: absolute;
+                    transform: translateY(15px);"></div>
+                    <section class="container w-1200" style="margin-top: 120px">
                         <div class="row">
-                            <div class="col-7" style="padding: 0">
+                            <div class="col-7 p-0">
                                 <div class="color-1 color"></div>
                             </div>
-                            <div class="col-5" style="padding: 0">
+                            <div class="col-5 p-0">
                                 <div class="color-2 color"></div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-4" style="padding: 0">
+                            <div class="col-4 p-0">
                                 <div class="color-3 color"></div>
                             </div>
-                            <div class="col-4" style="padding: 0">
+                            <div class="col-4 p-0">
                                 <div class="color-4 color"></div>
                             </div>
-                            <div class="col-4" style="padding: 0">
+                            <div class="col-4 p-0">
                                 <div class="color-5 color"></div>
                             </div>
                         </div>
                     </section>
                 </div>
                 <hr/>
-                <div id="two" class="content w-100" style="padding:0 10px 100px">
+                <div id="two" class="content w-1200" style="padding:0 10px 100px">
                     <h2>
                         <span>优势</span>
                     </h2>
@@ -241,125 +253,123 @@
         $('body').scrollspy({ target: '#scroll-navbar' })
     </script>
     <script>
-        $('[class^=block], [class^=block]>h2, [class^=block]>p').mouseenter(function(e) {
+        function leftTrans() {
+            $('.block-left').css({
+                'transform': 'skew(-60deg) translateX(20%)',
+            })
+            $('.block-left>h2').css({
+                'right': '25%',
+            })
+            $('.block-right>h2, .block-center>h2').css({
+                'display': 'none'
+            })
+            $('.block-left>p').css({
+                'right': '20%',
+            })
+        }
+        function rightTrans() {
+            $('.block-right').css({
+                'transform': 'skew(-60deg) translateX(-20%)',
+            })
+            $('.block-right>h2').css({
+                'left': '25%',
+            })
+            $('.block-left>h2, .block-center>h2').css({
+                'display': 'none'
+            })
+            $('.block-right>p').css({
+                'left': '20%',
+            })
+        }
+        function centerTrans() {
+            $('.block-left').css({
+                'transform': 'skew(-60deg) translateX(-10%)',
+            })
+            $('.block-right').css({
+                'transform': 'skew(-60deg) translateX(10%)',
+            })
+            $('.block-right>h2, .block-left>h2').css({
+                'display': 'none'
+            })
+            $('.block-center>p').css({
+                'top': '36%',
+            })
+        }
+        function leftRegain() {
+            $('.block-left').css({
+                'transform': 'skew(-60deg)',
+            })
+            $('.block-left>h2').css({
+                'right': '15%',
+            })
+            $('.block-right>h2, .block-center>h2').css({
+                'display': 'block'
+            })
+            $('.block-left>p').css({
+                'right': '60%',
+            })
+        }
+        function rightRegain() {
+            $('.block-right').css({
+                'transform': 'skew(-60deg)',
+            })
+            $('.block-right>h2').css({
+                'left': '15%',
+            })
+            $('.block-left>h2, .block-center>h2').css({
+                'display': 'block'
+            })
+            $('.block-right>p').css({
+                'left': '60%',
+            })
+        }
+        function centerRegain() {
+            $('.block-left').css({
+                'transform': 'skew(-60deg)',
+            })
+            $('.block-right').css({
+                'transform': 'skew(-60deg)',
+            })
+            $('.block-right>h2, .block-left>h2').css({
+                'display': 'block'
+            })
+            $('.block-center>p').css({
+                'top': '-60px',
+            })
+        }
+
+        $('[class^=block], [class^=block]>h2, [class^=block]>p').hover(function(e) {
             var target = e.target
             while (!/block/.test($(target).attr('class'))) {
                 target = target.parentNode
             }
             switch($(target).attr('class')) {
                 case 'block-left':
-                    $('.block-left').css({
-                        'transform': 'skew(45deg) translateX(20vw)',
-                        'transition': 'transform 1s ease 0s'
-                    })
-                    $('.block-left>h2').css({
-                        'right': '25vw',
-                        'transition': 'right 1s ease 0s'
-                    })
-                    $('.block-right>h2, .block-center>h2').css({
-                        'display': 'none'
-                    })
-                    $('.block-left>p').css({
-                        'right': '25vw',
-                        'transition': 'right 1s ease 0s'
-                    })
+                    rightRegain()
+                    centerRegain()
+                    leftTrans()
                 break
                 case 'block-right':
-                    $('.block-right').css({
-                        'transform': 'skew(-60deg) translateX(-20vw)',
-                        'transition': 'transform 1s ease 0s'
-                    })
-                    $('.block-right>h2').css({
-                        'left': '25vw',
-                        'transition': 'left 1s ease 0s'
-                    })
-                    $('.block-left>h2, .block-center>h2').css({
-                        'display': 'none'
-                    })
-                    $('.block-right>p').css({
-                        'left': '25vw',
-                        'transition': 'left 1s ease 0s'
-                    })
+                    leftRegain()
+                    centerRegain()
+                    rightTrans()
                 break
                 case 'block-center':
-                    $('.block-left').css({
-                        'transform': 'skew(45deg) translateX(-10vw)',
-                        'transition': 'transform 1s ease 0s'
-                    })
-                    $('.block-right').css({
-                        'transform': 'skew(-60deg) translateX(10vw)',
-                        'transition': 'transform 1s ease 0s'
-                    })
-                    $('.block-center>h2').css({
-                        'margin-top': '240px',
-                        'transition': 'margin-top 1s ease 0s'
-                    })
-                    $('.block-right>h2, .block-left>h2').css({
-                        'display': 'none'
-                    })
-                    $('.block-center>p').css({
-                        'margin-top': '180px',
-                        'transition': 'margin-top 1s ease 0s'
-                    })
+                    leftRegain()
+                    rightRegain()
+                    centerTrans()
                 break
             }
-        })
-        $('[class^=block]').mouseout(function(e) {
+        }, function(e) {
             switch($(e.target).attr('class')) {
                 case 'block-left':
-                    $('.block-left').css({
-                        'transform': 'skew(45deg)',
-                        'transition': 'transform 1s ease 0s'
-                    })
-                    $('.block-left>h2').css({
-                        'right': '14vw',
-                        'transition': 'right 1s ease 0s'
-                    })
-                    $('.block-right>h2, .block-center>h2').css({
-                        'display': 'block'
-                    })
-                    $('.block-left>p').css({
-                        'right': '60vw',
-                        'transition': 'left 1s ease 0s'
-                    })
+                    leftRegain()
                 break
                 case 'block-right':
-                    $('.block-right').css({
-                        'transform': 'skew(-60deg)',
-                        'transition': 'transform 1s ease 0s'
-                    })
-                    $('.block-right>h2').css({
-                        'left': '17vw',
-                        'transition': 'left 1s ease 0s'
-                    })
-                    $('.block-left>h2, .block-center>h2').css({
-                        'display': 'block'
-                    })
-                    $('.block-right>p').css({
-                        'left': '60vw',
-                        'transition': 'left 1s ease 0s'
-                    })
+                    rightRegain()
                 break
                 case 'block-center':
-                    $('.block-left').css({
-                        'transform': 'skew(45deg)',
-                        'transition': 'transform 1s ease 0s'
-                    })
-                    $('.block-right').css({
-                        'transform': 'skew(-60deg)',
-                        'transition': 'transform 1s ease 0s'
-                    })
-                    $('.block-right>h2, .block-left>h2').css({
-                        'display': 'block'
-                    })
-                    $('.block-center>h2').css({
-                        'margin-top': '200px',
-                        'transition': 'margin-top 1s ease 0s'
-                    })
-                    $('.block-center>p').css({
-                        'margin-top': '-60px',
-                        'transition': 'margin-top 1s ease 0s'
-                    })
+                   centerRegain()
                 break
             }
         })
