@@ -257,6 +257,9 @@
             $('.block-left').css({
                 'transform': 'skew(-60deg) translateX(20%)',
             })
+            $('.block-right').css({
+                'transform': 'skew(-60deg) translateX(10%)',
+            })
             $('.block-left>h2').css({
                 'right': '25%',
             })
@@ -270,6 +273,9 @@
         function rightTrans() {
             $('.block-right').css({
                 'transform': 'skew(-60deg) translateX(-20%)',
+            })
+            $('.block-left').css({
+                'transform': 'skew(-60deg) translateX(-10%)',
             })
             $('.block-right>h2').css({
                 'left': '25%',
@@ -299,6 +305,9 @@
             $('.block-left').css({
                 'transform': 'skew(-60deg)',
             })
+            $('.block-right').css({
+                'transform': 'skew(-60deg)',
+            })
             $('.block-left>h2').css({
                 'right': '15%',
             })
@@ -311,6 +320,9 @@
         }
         function rightRegain() {
             $('.block-right').css({
+                'transform': 'skew(-60deg)',
+            })
+            $('.block-left').css({
                 'transform': 'skew(-60deg)',
             })
             $('.block-right>h2').css({
@@ -337,42 +349,46 @@
                 'top': '-60px',
             })
         }
-
-        $('[class^=block], [class^=block]>h2, [class^=block]>p').hover(function(e) {
-            var target = e.target
-            while (!/block/.test($(target).attr('class'))) {
-                target = target.parentNode
-            }
-            switch($(target).attr('class')) {
-                case 'block-left':
-                    rightRegain()
+        if (document.body.clientWidth > 768) {
+            $('[class^=block], [class^=block]>h2, [class^=block]>p').hover(function(e) {
+                console.log(e)
+                var target = e.target
+                while (!/block/.test($(target).attr('class'))) {
+                    target = target.parentNode
+                }
+                switch($(target).attr('class')) {
+                    case 'block-left':
+                        rightRegain()
+                        centerRegain()
+                        leftTrans()
+                    break
+                    case 'block-right':
+                        leftRegain()
+                        centerRegain()
+                        rightTrans()
+                    break
+                    case 'block-center':
+                        leftRegain()
+                        rightRegain()
+                        centerTrans()
+                    break
+                }
+            }, function(e) {
+                switch($(e.target).attr('class')) {
+                    case 'block-left':
+                        leftRegain()
+                    break
+                    case 'block-right':
+                        rightRegain()
+                    break
+                    case 'block-center':
                     centerRegain()
-                    leftTrans()
-                break
-                case 'block-right':
-                    leftRegain()
-                    centerRegain()
-                    rightTrans()
-                break
-                case 'block-center':
-                    leftRegain()
-                    rightRegain()
-                    centerTrans()
-                break
-            }
-        }, function(e) {
-            switch($(e.target).attr('class')) {
-                case 'block-left':
-                    leftRegain()
-                break
-                case 'block-right':
-                    rightRegain()
-                break
-                case 'block-center':
-                   centerRegain()
-                break
-            }
-        })
+                    break
+                }
+            })
+        } else {
+            $('[class^=block], [class^=block]>h2, [class^=block]>p').hover(function() {})
+        }
     </script>
     <script>
         function getRegions(data) {
