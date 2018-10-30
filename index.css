@@ -94,7 +94,7 @@
     .block-right p {
         transform: skew(60deg);
         left: 60%;
-        bottom: 35%;
+        bottom: 32%;
         transition: left 1s ease 0s
     }
 }

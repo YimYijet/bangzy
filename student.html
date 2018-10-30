@@ -84,6 +84,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">疑问</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">加入</a>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -129,9 +132,14 @@
         <div class="container-fluid">
             <div data-spy="scroll" data-target="#scroll-navbar" data-offset="0">
                 <div class="show-panel">
-                    <picture></picture>
+                    <picture>
+                        
+                    </picture>
+                    <div class="playButton">
+                        
+                    </div>
                 </div>
-                <div id="zero" class="content w-1200">
+                <div id="zero" class="content w-1200" style="padding-bottom: 100px;">
                     <h2>
                         <span>优势</span>
                     </h2>
@@ -141,27 +149,28 @@
                                 一对一方案
                             </h2>
                             <p>
-                                不搞工厂复制，对考生一对一
+                                专家考生一对一，杜绝工厂式复制
                             </p>
                         </div>
                         <div class="block-center">
                             <h2>
-                                大数据分析
+                                行业大数据经验
                             </h2>
                             <p>
-                                五年高考数据，专业数据分析
+                                五年高考行业大数据，助你上榜心仪院校
                             </p>
                         </div>
                         <div class="block-right">
                             <h2>
-                                实时更新
+                                最新高考资讯
                             </h2>
                             <p>
-                                观察最新动态，给你最好的未来
+                                观察最新高考动态，成就你最好的未来
                             </p>
                         </div>
                     </section>
                 </div>
+                <hr/>
                 <div id="one" class="content" style="padding-bottom: 100px; overflow: initial;">
                     <h2>
                         <span>核心</span>
@@ -242,7 +251,7 @@
     <script src="http://www.echartsjs.com/gallery/vendors/echarts/map/js/china.js"></script>
     <script>
         $(window).scroll(function(e) {
-            if ($(window).scrollTop() > 670) {
+            if ($(window).scrollTop() > document.querySelector('#zero').offsetTop) {
                 $('#scroll-nav').show()
                 $('.to-top').show()
             } else {
@@ -298,7 +307,7 @@
                 'display': 'none'
             })
             $('.block-center>p').css({
-                'top': '36%',
+                'top': '38%',
             })
         }
         function leftRegain() {
@@ -351,7 +360,6 @@
         }
         if (document.body.clientWidth > 768) {
             $('[class^=block], [class^=block]>h2, [class^=block]>p').hover(function(e) {
-                console.log(e)
                 var target = e.target
                 while (!/block/.test($(target).attr('class'))) {
                     target = target.parentNode
