@@ -71,10 +71,10 @@
     <header class="container-fluid">
         <nav id="header-nav" class="navbar navbar-expand-lg navbar-light">
             <a class="navbar-brand" href="#">帮志愿</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            <div class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-            </button>
+            </div>
         
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <ul class="navbar-nav">
@@ -136,13 +136,20 @@
                         <picture>
                             
                         </picture>
-                        <div class="play-button rounded-circle" data-toggle="modal" data-target=".video">
-                            <i class="fa fa-caret-right" aria-hidden="true"></i> 
+                        <div class="play-button rounded-circle" data-toggle="modal" data-target="#video">
+                            <i class="fa fa-play" aria-hidden="true"></i> 
                         </div>
                     </div>
-                    <div class="video modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none">
-                        <video src="./index.mp4" class="player" autoplay controls></video>
-                        <div class="close-button"></div>
+                    <div id="video" class="video modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                        <!-- <video src="./index.mp4" class="player" autoplay muted controls></video>
+                        <div class="close-button">
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                        </div> -->
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <video src="./index.mp4" class="player" autoplay muted controls></video>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div id="zero" class="content w-1200" style="padding-bottom: 100px;">
@@ -266,6 +273,14 @@
             }
         })
         $('body').scrollspy({ target: '#scroll-navbar' })
+    </script>
+    <script>
+        $('.close-button').click(function(e) {
+            console.log($('#video').modal('hide'))
+            $('#video').modal('hide').removeClass('show')
+            $(".modal-backdrop").removeClass("in").removeClass("fade").remove()
+            $(".pace-done").addClass("pdr").removeClass("modal-open")
+        })
     </script>
     <script>
         function leftTrans() {

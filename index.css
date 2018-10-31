@@ -36,7 +36,7 @@
     align-items: center;
     display: flex;
     background: #fff;
-    font-size: 45px;
+    font-size: 24px;
     color: #666;
     align-self: center;
     border: 1px solid #666;
@@ -49,17 +49,31 @@
     margin-left: 8px;
 }
 .video .player {
-    width: 960px;
-    height: 545px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    width: 100%;
+    height: auto;
+    max-height: 450px;
 }
-.close-button {
+/* .close-button {
     width: 64px;
     height: 64px;
+    color: #666;
+    font-size: 48px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: absolute;
+    right: 0;
+    transition: 1s ease 0s;
 }
+.close-button:hover {
+    transform: rotate(135deg);
+    cursor: pointer;
+} */
+.video .modal-content {
+    background: none;
+    border: none;
+}
+
 @media only screen and (min-width: 992px) {
     .trans-panel {
         height: 600px;
