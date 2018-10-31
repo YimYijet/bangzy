@@ -64,7 +64,7 @@
             background: #cf6;
         }
     </style>
-    <title>Document</title>
+    <title></title>
 </head>
 
 <body>
@@ -92,7 +92,7 @@
         </nav>
     </header>
     <main>
-        <div class="d-sm-none d-md-block d-none">
+        <div class="d-lg-block d-none">
             <div class="to-top">
                 <a href="#">
                     <i class="fa fa-caret-up"></i>
@@ -132,11 +132,17 @@
         <div class="container-fluid">
             <div data-spy="scroll" data-target="#scroll-navbar" data-offset="0">
                 <div class="show-panel">
-                    <picture>
-                        
-                    </picture>
-                    <div class="playButton">
-                        
+                    <div class="show-video">
+                        <picture>
+                            
+                        </picture>
+                        <div class="play-button rounded-circle" data-toggle="modal" data-target=".video">
+                            <i class="fa fa-caret-right" aria-hidden="true"></i> 
+                        </div>
+                    </div>
+                    <div class="video modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none">
+                        <video src="./index.mp4" class="player" autoplay controls></video>
+                        <div class="close-button"></div>
                     </div>
                 </div>
                 <div id="zero" class="content w-1200" style="padding-bottom: 100px;">

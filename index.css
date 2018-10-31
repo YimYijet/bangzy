@@ -16,10 +16,51 @@
     /* background-image: url(./background.jpg);
     background-position: center; */
     height: 600px;
+    display: flex;
+    justify-content: center;
 }
-
-
-@media only screen and (min-width: 768px) {
+.show-video {
+    width: 960px;
+    height: 545px;
+    position: relative;
+}
+.show-video:hover .play-button {
+    color: #fff;
+    background: #666;
+    cursor: pointer;
+}
+.play-button {
+    width: 64px;
+    height: 64px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background: #fff;
+    font-size: 45px;
+    color: #666;
+    align-self: center;
+    border: 1px solid #666;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+.play-button i {
+    margin-left: 8px;
+}
+.video .player {
+    width: 960px;
+    height: 545px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.close-button {
+    width: 64px;
+    height: 64px;
+}
+@media only screen and (min-width: 992px) {
     .trans-panel {
         height: 600px;
         color: gray;
@@ -99,7 +140,7 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     .block-left, .block-center, .block-right {
         width: 100%;
     }
