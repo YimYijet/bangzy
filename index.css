@@ -61,6 +61,7 @@
     margin: 5px;
     position: relative;
     overflow: hidden;
+    border-radius: 3px;
 }
 .color h3,.color p {
     color: #fff;
@@ -68,22 +69,23 @@
 }
 .color h3 {
     bottom: 50px;
-    left: 30px;
-    transition: bottom 1s ease 0s;
+    left: 40px;
+    transition: bottom .5s ease 0s;
 }
 .color p {
-    bottom: -100%;
-    left: 30px;
-    transition: bottom 1s ease 0s;
+    bottom: -50%;
+    left: 40px;
+    transition: bottom .5s ease 0s;
 }
 .color:hover {
-    filter: grayscale(80%);
+    filter: grayscale(50%);
+    border-top: 4px solid #008ed6;
 }
 .color:hover h3 {
-    bottom: 200px;
+    bottom: 220px;
 }
 .color:hover p {
-    bottom: 100px;
+    bottom: 80px;
 }
 .color-1 {
     background: #6cf;
@@ -106,32 +108,32 @@
 .color-cell, .color-cell :last-child, .color-cell :first-child {
     height: 300px;
 }
-.color-cell:nth-of-type(odd) :first-child {
+.color-cell:nth-of-type(odd)>:first-child {
     width: 50%;
     transform: skew(-30deg) translateX(-40%);
     z-index: 1;
     position: absolute;
 }
-.color-cell:nth-of-type(even) :last-child {
+.color-cell:nth-of-type(even)>:last-child {
     width: 50%;
     transform: skew(-30deg) translateX(140%);
     z-index: 1;
     position: absolute;
     top: 0;
 }
-.color-cell-1 :first-child{
+.color-cell-1>:first-child{
     background: #6cf;
 }
-.color-cell-2 :last-child{
+.color-cell-2>:last-child{
     background: #6fc;
 }
-.color-cell-3 :first-child{
+.color-cell-3>:first-child{
     background: #fc6;
 }
-.color-cell-4 :last-child{
+.color-cell-4>:last-child{
     background: #f6c;
 }
-.color-cell-5 :first-child{
+.color-cell-5>:first-child{
     background: #cf6;
 }
 
