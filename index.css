@@ -3,10 +3,22 @@
     overflow: hidden;
     position: relative;
     height: 100%;
+    padding-bottom: 100px;
 }
 .content h2 {
     margin: 100px auto 60px;
     text-align: center;
+}
+.row-panel {
+    display: flex;
+    margin-left: -15px; 
+    margin-right: -15px; 
+}
+.cell-5, .cell-7, .cell-4 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
 }
 .w-1200 {
     max-width: 1200px;
@@ -57,35 +69,39 @@
 }
 
 .color {
-    height: 350px;
-    margin: 5px;
+    height: 100%;
     position: relative;
     overflow: hidden;
     border-radius: 3px;
+    width: 100%;
+}
+.color>div {
+    height: 100%;
+    transition: all 0.4s ease-in-out 0s;
 }
 .color h3,.color p {
     color: #fff;
     position: absolute;
 }
 .color h3 {
-    bottom: 50px;
-    left: 40px;
+    bottom: 10%;
+    padding: 0 1.5rem;
     transition: bottom .5s ease 0s;
 }
 .color p {
     bottom: -50%;
-    left: 40px;
+    padding: 0 1.5rem;
     transition: bottom .5s ease 0s;
 }
-.color:hover {
-    filter: grayscale(50%);
+.color:hover>div {
     border-top: 4px solid #008ed6;
+    background: rgba(0, 0, 0, 0.5);
 }
 .color:hover h3 {
-    bottom: 220px;
+    bottom: 60%;
 }
 .color:hover p {
-    bottom: 80px;
+    bottom: 20%;
 }
 .color-1 {
     background: #6cf;
@@ -102,52 +118,59 @@
 .color-5 {
     background: #cf6;
 }
-.color-cell {
+.skew-cell {
     position: relative;
+    display: flex;
 }
-.color-cell, .color-cell :last-child, .color-cell :first-child {
+.skew-cell>:last-child, .skew-cell>:first-child {
     height: 300px;
 }
-.color-cell:nth-of-type(odd)>:first-child {
-    width: 50%;
-    transform: skew(-30deg) translateX(-40%);
-    z-index: 1;
-    position: absolute;
-}
-.color-cell:nth-of-type(even)>:last-child {
-    width: 50%;
-    transform: skew(-30deg) translateX(140%);
-    z-index: 1;
-    position: absolute;
-    top: 0;
-}
-.color-cell-1>:first-child{
+.skew-cell-1>:first-child{
     background: #6cf;
 }
-.color-cell-2>:last-child{
+.skew-cell-2>:last-child{
     background: #6fc;
 }
-.color-cell-3>:first-child{
+.skew-cell-3>:first-child{
     background: #fc6;
 }
-.color-cell-4>:last-child{
+.skew-cell-4>:last-child{
     background: #f6c;
 }
-.color-cell-5>:first-child{
+.skew-cell-5>:first-child{
     background: #cf6;
 }
-
+.map {
+    width: 100%;
+    overflow: hidden;
+    background: #404a59;
+}
 
 @media only screen and (min-width: 992px) {
+    .row-panel {
+        flex-direction: row;
+        height: 350px;
+    }
+    .cell-4 {
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+    }
+    .cell-5 {
+        flex: 0 0 41.666667%;
+        max-width: 41.666667%;
+    }
+    .cell-7 {
+        flex: 0 0 58.333333%;
+        max-width: 58.333333%;
+    }
     .trans-panel {
         height: 600px;
         color: gray;
         overflow: hidden;
         position: relative;
     }
-    
     .block-left, .block-center, .block-right {
-        transition: transform 1s ease 0s;
+        transition: all 1s ease 0s;
         width: 100%;
         height: 600px;
         position: absolute;
@@ -169,27 +192,27 @@
         right: -75%;
         z-index: 1;
     }
-    .block-left h2, .block-center h2, .block-right h2 {
+    .block-left h3, .block-center h3, .block-right h3 {
         position: absolute;
         font-weight: 500;
-        font-size: 40px;
+        font-size: 32px;
         margin: 0;
     }
-    .block-left h2 {
+    .block-left h3 {
         transform: skew(60deg);
         right: 15%;
         top: 25%;
-        transition: right 1s ease 0s
+        transition: all 1s ease 0s
     }
-    .block-center h2 {
+    .block-center h3 {
         margin: 0;
         align-self: center;
     }
-    .block-right h2 {
+    .block-right h3 {
         transform: skew(60deg);
         left: 15%;
         bottom: 25%;
-        transition: left 1s ease 0s
+        transition: all 1s ease 0s
     }
     .block-left p, .block-center p, .block-right p {
         position: absolute;
@@ -202,7 +225,7 @@
         transform: skew(60deg);
         right: 60%;
         top: 35%;
-        transition: right 1s ease 0s
+        transition: all 1s ease 0s
     }
     .block-center p {
         top: -60px;
@@ -214,12 +237,97 @@
         transform: skew(60deg);
         left: 60%;
         bottom: 32%;
-        transition: left 1s ease 0s
+        transition: all 1s ease 0s
+    }
+    .map {
+        height: 800px;
+    }
+    .content-top {
+        margin-top: 100px;
+    }
+    .skew-cell:nth-of-type(odd)>:first-child {
+        width: 50%;
+        transform: skew(-30deg) translateX(-86.6px);
+        z-index: 1;
+        position: absolute;
+    } 
+    .skew-cell:nth-of-type(even)>:last-child {
+        width: 50%;
+        transform: skew(-30deg) translateX(86.6px);
+        z-index: 1;
+        position: absolute;
+    }
+    .skew-cell:nth-of-type(even)>:last-child {
+        right: 0;
+    }
+    .skew-cell:nth-of-type(even)>:first-child, .skew-cell:nth-of-type(odd)>:last-child {
+        z-index: 1;
+        width: calc(50% + 173.2px);
+        padding-left: 186.6px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .skew-cell:nth-of-type(odd)>:last-child {
+        margin-left: calc(50% - 173.2px);
     }
 }
 
 @media (max-width: 992px) {
+    .flex-lg {
+        display: flex;
+        justify-content: space-around;
+    }
+    .row-panel {
+        display: inline-flex;
+        width: 50%;
+        flex-direction: column;
+        height: 120vw;
+    }
+    .cell-4 {
+        flex: 0 0 33.333333%;
+        max-height: 33.333333%;
+    }
+    .cell-5 {
+        flex: 0 0 41.666667%;
+        max-height: 41.666667%;
+    }
+    .cell-7 {
+        flex: 0 0 58.333333%;
+        max-height: 58.333333%;
+    }
     .block-left, .block-center, .block-right {
         width: 100%;
+    }
+    .color h3 {
+        font-size: 1.5em;
+    }
+    .color p {
+        font-size: .75em;
+    }
+    .map {
+        height: 400px;
+    }
+    .content-top {
+        margin-top: 4.8rem;
+    }
+    .content {
+        padding-bottom: 4rem;
+    }
+    .content h2 {
+        margin: 4rem auto 2.5rem;
+    }
+    .skew-cell>:first-child, .skew-cell>:last-child {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 1rem;
+    }
+    .skew-cell h3 {
+        font-size: 1.5rem;
+    }
+    .skew-cell p {
+        font-size: .75rem;
     }
 }
