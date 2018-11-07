@@ -28,6 +28,7 @@
     height: 600px;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 .show-video {
     width: 960px;
@@ -284,6 +285,21 @@
     .flex-lg {
         display: flex;
         justify-content: space-around;
+    }
+    .show-panel {
+        height: 16rem;
+    }
+    .show-video {
+        width: 24rem;
+        height: 13.5rem;
+    }
+    .play-button {
+        width: 4rem;
+        height: 4rem;
+        font-size: 1.5rem;
+    }
+    .play-button i {
+        margin-left: .5rem;
     }
     .row-panel {
         display: inline-flex;

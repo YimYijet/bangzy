@@ -88,7 +88,8 @@
                     <div id="video" class="video modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
-                                <video src="./index.mp4" class="player" autoplay muted controls></video>
+                                <video src="./index.mp4" class="player" controls></video>
+
                             </div>
                         </div>
                     </div>
@@ -259,6 +260,13 @@
         $('body').scrollspy({ target: '#scroll-navbar' })
     </script>
     <script>
+        $('.video').on('hidden.bs.modal', function(e) {
+            document.querySelector('.player').pause()
+        }).on('shown.bs.modal', function(e) {
+            document.querySelector('.player').play()
+        })
+    </script>
+    <script>
         function leftTrans() {
             $('.block-left').css({
                 'transform': 'skew(-60deg) translateX(20%)',
@@ -356,7 +364,7 @@
             })
         }
         function handleTap(el, dir) {
-            if (dir < 0 && el == 'block-right' || dir > 0 && el == 'block-left') {
+            if (dir > 0 && el == 'block-right' || dir < 0 && el == 'block-left') {
                 $('.block-left, .block-right').css({
                     'height': '1rem',
                 })
@@ -370,7 +378,7 @@
                     'display': 'none'
                 })
             }
-            if (dir > 0 && el == 'block-center') {
+            if (dir < 0 && el == 'block-center') {
                 $('.block-left, .block-center').css({
                     'height': '1rem',
                 })
@@ -384,7 +392,7 @@
                     'display': 'none'
                 })
             }
-            if (dir < 0 && el == 'block-center') {
+            if (dir > 0 && el == 'block-center') {
                 $('.block-center, .block-right').css({
                     'height': '1rem',
                 })
