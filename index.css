@@ -67,7 +67,20 @@
     background: none;
     border: none;
 }
-
+.trans-panel {
+    color: gray;
+    overflow: hidden;
+    position: relative;
+}
+.block-left {
+    background: #00D998;
+}
+.block-center {
+    background: #BEFCAE;
+}
+.block-right {
+    background: #52F7B2;
+}
 .color {
     height: 100%;
     position: relative;
@@ -165,9 +178,6 @@
     }
     .trans-panel {
         height: 600px;
-        color: gray;
-        overflow: hidden;
-        position: relative;
     }
     .block-left, .block-center, .block-right {
         transition: all 1s ease 0s;
@@ -176,7 +186,6 @@
         position: absolute;
     }
     .block-left {
-        background: #00D998;
         transform: skew(-60deg);
         left: -75%;
         z-index: 1;
@@ -184,10 +193,8 @@
     .block-center {
         display: flex;
         justify-content: center;
-        background: #BEFCAE;
     }
     .block-right {
-        background: #52F7B2;
         transform: skew(-60deg);
         right: -75%;
         z-index: 1;
@@ -284,6 +291,9 @@
         flex-direction: column;
         height: 120vw;
     }
+    .cell-5, .cell-7, .cell-4 {
+        padding: 2px;
+    }
     .cell-4 {
         flex: 0 0 33.333333%;
         max-height: 33.333333%;
@@ -298,6 +308,20 @@
     }
     .block-left, .block-center, .block-right {
         width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        transition: all 1s ease 0s;
+    }
+    .block-left {
+        height: 20rem;
+    }
+    .block-center, .block-right {
+        height: 1rem;
+    }
+    .block-center>h3, .block-center>p, .block-right>h3, .block-right>p {
+        display: none;
     }
     .color h3 {
         font-size: 1.5em;
@@ -306,7 +330,7 @@
         font-size: .75em;
     }
     .map {
-        height: 400px;
+        height: 100vw;
     }
     .content-top {
         margin-top: 4.8rem;
@@ -323,6 +347,7 @@
         flex-direction: column;
         justify-content: center;
         padding: 1rem;
+        height: 50vw;
     }
     .skew-cell h3 {
         font-size: 1.5rem;

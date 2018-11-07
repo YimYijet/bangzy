@@ -355,6 +355,50 @@
                 'top': '-60px',
             })
         }
+        function handleTap(el, dir) {
+            if (dir < 0 && el == 'block-right' || dir > 0 && el == 'block-left') {
+                $('.block-left, .block-right').css({
+                    'height': '1rem',
+                })
+                $('.block-center').css({
+                    'height': '20rem',
+                })
+                $('.block-center>h3, .block-center>p').css({
+                    'display': 'block'
+                })
+                $('.block-left>h3, .block-left>p, .block-right>h3, .block-right>p').css({
+                    'display': 'none'
+                })
+            }
+            if (dir > 0 && el == 'block-center') {
+                $('.block-left, .block-center').css({
+                    'height': '1rem',
+                })
+                $('.block-right').css({
+                    'height': '20rem',
+                })
+                $('.block-right>h3, .block-right>p').css({
+                    'display': 'block'
+                })
+                $('.block-left>h3, .block-left>p, .block-center>h3, .block-center>p').css({
+                    'display': 'none'
+                })
+            }
+            if (dir < 0 && el == 'block-center') {
+                $('.block-center, .block-right').css({
+                    'height': '1rem',
+                })
+                $('.block-left').css({
+                    'height': '20rem',
+                })
+                $('.block-left>h3, .block-left>p').css({
+                    'display': 'block'
+                })
+                $('.block-center>h3, .block-center>p, .block-right>h3, .block-right>p').css({
+                    'display': 'none'
+                })
+            }
+        }
         if (document.body.clientWidth > 768) {
             $('[class^=block], [class^=block]>h3, [class^=block]>p').hover(function(e) {
                 var target = e.target
@@ -392,7 +436,21 @@
                 }
             })
         } else {
+            var start, end
             $('[class^=block], [class^=block]>h3, [class^=block]>p').hover(function() {})
+            .on('touchstart', function(e) {
+                e.preventDefault()
+                start = e.originalEvent.changedTouches[0].pageY
+            })
+            .on('touchmove', function(e) {
+                e.preventDefault()
+                var target = e.target
+                while (!/block/.test($(target).attr('class'))) {
+                    target = target.parentNode
+                }
+                end = e.originalEvent.changedTouches[0].pageY
+                handleTap($(target).attr('class'), end - start)
+            })
         }
     </script>
     <script>
