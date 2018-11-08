@@ -1,3 +1,18 @@
+.background {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    z-index: -1;
+}
+.background::before, .background::after {
+    content: '';
+    height: 656px;
+    display: inline-block;
+    width: 50%;
+}
+.background::after {
+    background: #ccc;
+}
 .content {
     margin: auto;
     overflow: hidden;
@@ -28,27 +43,54 @@
     height: 600px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
+    position: relative;
+}
+.show-content {
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    z-index: 1;
+    transform: translateY(-50%);
+    transition: all .5s ease-in-out 0s;
 }
 .show-video {
     width: 960px;
     height: 545px;
     position: relative;
 }
+.show-video:hover {
+    background: rgba(0, 0, 0, 0.5);
+}
 .show-video:hover .play-button {
-    color: #fff;
-    background: #666;
     cursor: pointer;
+    background: #fff;
+    color: #666;
+}
+.close-button {
+    position: absolute;
+    top: 0;
+    right: -64px;
+    width: 64px;
+    height: 64px;
+    font-size: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .4s ease 0s;
+}
+.close-button:hover {
+    transform: rotate(90deg);
 }
 .play-button {
     width: 64px;
     height: 64px;
     justify-content: center;
+    background: #666;
     align-items: center;
     display: flex;
-    background: #fff;
     font-size: 24px;
-    color: #666;
+    color: #fff;
     align-self: center;
     border: 1px solid #666;
     top: 50%;
@@ -62,7 +104,7 @@
 .video .player {
     width: 100%;
     height: auto;
-    max-height: 450px;
+    max-height: calc(100vh - 3.5rem);
 }
 .video .modal-content {
     background: none;
@@ -81,6 +123,10 @@
 }
 .block-right {
     background: #52F7B2;
+}
+.flex-lg {
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .color {
     height: 100%;
@@ -282,16 +328,42 @@
 }
 
 @media (max-width: 992px) {
+    .background {
+        display: none;
+    }
     .flex-lg {
         display: flex;
         justify-content: space-around;
     }
     .show-panel {
-        height: 16rem;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 20rem;
     }
     .show-video {
         width: 24rem;
         height: 13.5rem;
+    }
+    .show-content {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+    }
+    .show-content h1 {
+        text-align: center;
+        font-size: 2rem;
+    }
+    .close-button {
+        width: 4rem;
+        height: 4rem;
+        font-size: 3rem;
+        right: 0;
+    }
+    .video .player {
+        transform: translateY(4rem);
+        max-height: calc(100vh - 7.5rem);
     }
     .play-button {
         width: 4rem;

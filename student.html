@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <header class="container-fluid">
+    <header class="container-fluid" style="background: transparent;">
         <nav id="header-nav" class="navbar navbar-expand-lg navbar-light">
             <a class="navbar-brand" href="#">帮志愿</a>
             <div class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -23,19 +23,20 @@
         
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <ul class="navbar-nav">
-                    <li class="nav-item active">
+                    <li class="nav-item active nav-cell">
                         <a class="nav-link" href="./student.html">首页<span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item nav-cell">
                         <a class="nav-link" href="#">疑问</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item nav-cell">
                         <a class="nav-link" href="#">加入</a>
                     </li>
                 </ul>
             </div>
         </nav>
     </header>
+    <div class="background"></div>
     <main>
         <div class="d-lg-block d-none">
             <div class="to-top">
@@ -70,6 +71,12 @@
                                 <span>业绩</span>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#four">
+                                <i class="fa fa-cogs"></i>
+                                <span>加入</span>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -77,6 +84,12 @@
         <div class="container-fluid">
             <div data-spy="scroll" data-target="#scroll-navbar" data-offset="0">
                 <div class="show-panel">
+                    <div class="show-content">
+                        <h1>XX，XXXX</h1>
+                        <p>
+                            五年高考行业大数据，助你上榜心仪院校 
+                        </p>
+                    </div>
                     <div class="show-video">
                         <picture>
                             
@@ -85,16 +98,18 @@
                             <i class="fa fa-play" aria-hidden="true"></i> 
                         </div>
                     </div>
-                    <div id="video" class="video modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div id="video" class="video modal fade p-0" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
+                                <div class="close-button">
+                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                </div>
                                 <video src="./index.mp4" class="player" controls></video>
-
                             </div>
                         </div>
                     </div>
                 </div>
-                <div id="zero" class="content w-1200">
+                <div id="zero" class="content w-1200" style="padding-left: 10px;padding-right: 10px;">
                     <h2>
                         <span>优势</span>
                     </h2>
@@ -236,6 +251,14 @@
                     <section id="map" class="map content-top">
                     </section>
                 </div>
+                <hr/>
+                <div id="four" class="content w-100" style="padding-right: 10px;padding-left: 10px;">
+                    <h2>
+                        <span>加入</span>
+                    </h2>
+                    <section class="content-top">
+                    </section>
+                </div>
             </div>
         </div>
     </main>
@@ -260,7 +283,23 @@
         $('body').scrollspy({ target: '#scroll-navbar' })
     </script>
     <script>
-        $('.video').on('hidden.bs.modal', function(e) {
+        $('.show-video').hover(function(e) {
+            if (document.body.clientWidth > 992) {    
+                $('.show-content').css({
+                    'visibility': 'hidden'
+                })
+            }
+        }, function(e) {
+            $('.show-content').css({
+                'visibility': 'visible'
+            })
+        })
+    </script>
+    <script>
+        $('.close-button').click(function(e) {
+            $('#video').modal('hide')
+        })
+        $('#video').on('hidden.bs.modal', function(e) {
             document.querySelector('.player').pause()
         }).on('shown.bs.modal', function(e) {
             document.querySelector('.player').play()
@@ -281,7 +320,7 @@
                 'display': 'none'
             })
             $('.block-left>p').css({
-                'right': '18%',
+                'right': '17%',
             })
         }
         function rightTrans() {
@@ -298,7 +337,7 @@
                 'display': 'none'
             })
             $('.block-right>p').css({
-                'left': '18%',
+                'left': '17%',
             })
         }
         function centerTrans() {
