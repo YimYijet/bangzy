@@ -19,6 +19,7 @@
     position: relative;
     height: 100%;
     padding-bottom: 100px;
+    padding: 0 10px;
 }
 .content h2 {
     margin: 100px auto 60px;
@@ -124,10 +125,6 @@
 .block-right {
     background: #52F7B2;
 }
-.flex-lg {
-    padding-left: 10px;
-    padding-right: 10px;
-}
 .color {
     height: 100%;
     position: relative;
@@ -205,8 +202,36 @@
     overflow: hidden;
     background: #404a59;
 }
+.join-wrap {
+    /* background: #6cf; */
+}
+.join-panel {
+    height: 600px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.join-button {
+    display: inline-block;
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background: #ce1b2e;
+}
+.join-panel:hover {
+    color: #ce1b2e;
+    background: rgba(0, 0, 0, 0.5);
+}
+.join-panel:hover .join-button {
+    background: #fff;
+}
 
 @media only screen and (min-width: 992px) {
+    .flex-lg {
+        padding: 10px;
+    }
     .row-panel {
         flex-direction: row;
         height: 350px;
@@ -334,6 +359,7 @@
     .flex-lg {
         display: flex;
         justify-content: space-around;
+        padding: 0;
     }
     .show-panel {
         flex-direction: column;
@@ -442,5 +468,14 @@
     }
     .skew-cell p {
         font-size: .75rem;
+    }
+    .join-panel {
+        height: 16rem;
+    }
+    .join-button {
+        width: 4rem;
+        height: 2rem;
+        font-size: 1.25rem;
+        line-height: 2rem;
     }
 }

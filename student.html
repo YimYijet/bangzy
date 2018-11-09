@@ -13,15 +13,10 @@
 </head>
 
 <body>
-    <header class="container-fluid" style="background: transparent;">
-        <nav id="header-nav" class="navbar navbar-expand-lg navbar-light">
+    <header class="container-fluid header">
+        <nav id="header-nav" class="navbar navbar-expand-lg navbar-light" style="padding-right: 0;">
             <a class="navbar-brand" href="#">帮志愿</a>
-            <div class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </div>
-        
-            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <div class="toggle navbar-collapse justify-content-end" id="navbarCollapse">
                 <ul class="navbar-nav">
                     <li class="nav-item active nav-cell">
                         <a class="nav-link" href="./student.html">首页<span class="sr-only">(current)</span></a>
@@ -34,10 +29,14 @@
                     </li>
                 </ul>
             </div>
+            <div class="navbar-toggler toggle" id="navbarToggler">
+                <span class="navbar-toggler-icon"></span>
+            </div>
         </nav>
     </header>
+
     <div class="background"></div>
-    <main>
+    <main class="toggle main">
         <div class="d-lg-block d-none">
             <div class="to-top">
                 <a href="#">
@@ -109,7 +108,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="zero" class="content w-1200" style="padding-left: 10px;padding-right: 10px;">
+                <div id="zero" class="content w-1200">
                     <h2>
                         <span>优势</span>
                     </h2>
@@ -198,7 +197,7 @@
                     </section>
                 </div>
                 <hr/>
-                <div id="two" class="content w-1200" style="padding-left: 10px;padding-right: 10px;">
+                <div id="two" class="content w-1200">
                     <h2>
                         <span>优势</span>
                     </h2>
@@ -244,7 +243,7 @@
                     </section>
                 </div>
                 <hr/>
-                <div id="three" class="content w-1200" style="padding-right: 10px;padding-left: 10px;">
+                <div id="three" class="content w-1200">
                     <h2>
                         <span>业绩</span>
                     </h2>
@@ -254,24 +253,65 @@
                     </section>
                 </div>
                 <hr/>
-                <div id="four" class="content w-100" style="padding-right: 10px;padding-left: 10px;">
-                    <h2>
+                <div id="four" class="content w-100">
+                    <!-- <h2>
                         <span>加入</span>
-                    </h2>
-                    <section class="content-top">
+                    </h2> -->
+                    <section class="content-top join-wrap">
+                        <div class="join-panel">
+                            <a href="#" class="join-button">加入</a>
+                        </div>
                     </section>
                 </div>
             </div>
         </div>
     </main>
-    <footer>
-
+    <footer class="toggle">
+        
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.1.0/echarts.min.js"></script>
     <script src="http://www.echartsjs.com/gallery/vendors/echarts/map/js/china.js"></script>
+    <script>
+        $('#navbarToggler').click(function(e) {
+            if (!$('#navbarCollapse').hasClass('open')) {
+                $('#navbarCollapse').toggleClass('open').show().css({
+                    'right': '0',
+                })
+                $('main footer').css({
+                    'transform': 'translateX(-14rem)'
+                })
+                $('#navbarToggler').css({
+                    'width': '16rem'
+                }).toggleClass('navbar-dark')
+            } else {
+                $('#navbarCollapse').toggleClass('open').hide().css({
+                    'right': '-16rem'
+                })
+                $('main footer').css({
+                    'transform': 'none'
+                })
+                $('#navbarToggler').css({
+                    'width': '3.5rem'
+                }).toggleClass('navbar-dark')
+            }
+        })
+        $('main footer').click(function(e) {
+            if ($('#navbarCollapse').hasClass('open')) {
+                $('#navbarCollapse').toggleClass('open').hide().css({
+                    'right': '-16rem'
+                })
+                $('main footer').css({
+                    'transform': 'none'
+                })
+                $('#navbarToggler').css({
+                    'width': '3.5rem'
+                }).toggleClass('navbar-dark')
+            }
+        })
+    </script>
     <script>
         $(window).scroll(function(e) {
             if ($(window).scrollTop() > document.querySelector('#zero').offsetTop) {
