@@ -280,8 +280,8 @@
                 $('#navbarCollapse').toggleClass('open').show().css({
                     'right': '0',
                 })
-                $('main footer').css({
-                    'transform': 'translateX(-14rem)'
+                $('main, footer').css({
+                    'transform': 'translateX(-16rem)'
                 })
                 $('#navbarToggler').css({
                     'width': '16rem'
@@ -290,7 +290,7 @@
                 $('#navbarCollapse').toggleClass('open').hide().css({
                     'right': '-16rem'
                 })
-                $('main footer').css({
+                $('main, footer').css({
                     'transform': 'none'
                 })
                 $('#navbarToggler').css({
@@ -298,12 +298,12 @@
                 }).toggleClass('navbar-dark')
             }
         })
-        $('main footer').click(function(e) {
+        $('main, footer').click(function(e) {
             if ($('#navbarCollapse').hasClass('open')) {
                 $('#navbarCollapse').toggleClass('open').hide().css({
                     'right': '-16rem'
                 })
-                $('main footer').css({
+                $('main, footer').css({
                     'transform': 'none'
                 })
                 $('#navbarToggler').css({
