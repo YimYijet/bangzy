@@ -7,15 +7,19 @@ a {
 .nav-cell {
     position: relative;
 }
-.nav-link {
+.nav-cell .nav-link {
     min-width: 100px;
     text-align: center;
 }
 a:hover {
     color: inherit;
 }
-header {
+.header {
     max-width: 1200px;
+}
+.logo {
+    width: auto;
+    height: 100%;
 }
 .to-top {
     font-size: 40px;
@@ -62,18 +66,37 @@ header {
 }
 
 @media only screen and (min-width: 992px) {
-    @keyframes hover {
+    /* @keyframes hover {
         from {
             width: 0
         }
         to {
             width: 50%;
         }
+    } */
+    .nav-cell {
+        border-radius: 25px;
+        margin-right: 25px;
+        background: transparent;
+        border: 2px solid #2a2a2a;
+        color: #2a2a2a;
+        transition: all .3s ease 0s;
     }
-    .navbar-nav .nav-item:hover ::after, .navbar-nav .nav-item:hover ::before {
+    .nav-cell:last-child {
+        margin: 0;
+    }
+    .navbar-light .navbar-nav .nav-link {
+        padding: .25rem 1rem;
+        color: inherit !important;
+    }
+    .nav-cell:hover {
+        background: #2a2a2a;
+        color: #fff;
+    }
+    /* .navbar-nav .nav-item:hover ::after, .navbar-nav .nav-item:hover ::before {
         animation: hover .5s forwards;
-    }
-    .navbar-nav .nav-item ::after, .navbar-nav .nav-item ::before {
+    } */
+    /* .navbar-nav .nav-item ::after, .navbar-nav .nav-item ::before {
         content: '';
         height: 3px;
         top: -0.5rem;
@@ -87,7 +110,7 @@ header {
     }
     .navbar-nav .nav-item ::before {
         left: 50%;
-    }
+    } */
     .header {
         background: transparent;
     }
@@ -97,10 +120,6 @@ header {
     .navbar-nav .active {
         color: #2db7f5!important;
     }
-    /* .navbar-nav .active {
-        background: #fff !important;
-        color: #2b85e4 !important;
-    } */
     .navbar-nav .nav-item {
         color: #959595;
         font-size: 1.25rem;

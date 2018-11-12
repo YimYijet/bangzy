@@ -11,7 +11,7 @@
     width: 50%;
 }
 .background::after {
-    background: #ccc;
+    background: #34A1EF;
 }
 .content {
     margin: auto;
