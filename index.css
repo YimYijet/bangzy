@@ -56,6 +56,12 @@
     transform: translateY(-50%);
     transition: all .5s ease-in-out 0s;
 }
+.show-content h1 {
+    color: #008ed6;
+}
+.show-content p {
+    color: #999;
+}
 .show-video {
     width: 960px;
     height: 545px;
@@ -113,7 +119,7 @@
     border: none;
 }
 .trans-panel {
-    color: gray;
+    color: #fff;
     overflow: hidden;
     position: relative;
 }
@@ -151,7 +157,13 @@
     padding: 0 1.5rem;
     transition: bottom .5s ease 0s;
 }
-.color:hover>div {
+.color:hover>div picture::after {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    content: '';
+    display: block;
     border-top: 4px solid #008ed6;
     background: rgba(0, 0, 0, 0.5);
 }
@@ -162,10 +174,12 @@
     bottom: 20%;
 }
 .color-1 {
-    background: #6cf;
+    background: url(./image/1.jpg) no-repeat;
+    background-size: 100%;
 }
 .color-2 {
-    background: #6fc;
+    background: url(./image/2.jpg) no-repeat;
+    background-size: 100%;
 }
 .color-3 {
     background: #fc6;
@@ -181,22 +195,8 @@
     display: flex;
 }
 .skew-cell>:last-child, .skew-cell>:first-child {
+    overflow: hidden;
     height: 300px;
-}
-.skew-cell-1>:first-child{
-    background: #6cf;
-}
-.skew-cell-2>:last-child{
-    background: #6fc;
-}
-.skew-cell-3>:first-child{
-    background: #fc6;
-}
-.skew-cell-4>:last-child{
-    background: #f6c;
-}
-.skew-cell-5>:first-child{
-    background: #cf6;
 }
 .map {
     width: 100%;
@@ -204,7 +204,7 @@
     background: #404a59;
 }
 .join-wrap {
-    /* background: #6cf; */
+    background: url(./image/join.jpg) no-repeat center fixed;
 }
 .join-panel {
     height: 450px;
@@ -228,7 +228,68 @@
 .join-panel:hover .join-button {
     background: #fff;
 }
-
+.footer {
+    /* background: #5b5a5a;
+    color: rgba(255,255,255,0.5); */
+    color: #333;
+    list-style: none;
+}
+.footer .footer-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 1.5rem 1rem 0.75rem;
+}
+.left-cell .title {
+    /* color: #008ed6; */
+    font-size: 1.2em;
+}
+.footer .license {
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: .75rem;
+}
+.contact-wrap {
+    list-style: none;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: .5rem 0;
+    margin: 1rem 0;
+}
+.contact {
+    width: 2em;
+    height: 2em;
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid #333;
+    justify-content: center;
+}
+.contact:hover {
+    background: #333;
+    color: #fff!important;
+}
+.contact-weixin:hover ::after, .contact-qq:hover ::after {
+    content: '';
+    display: block;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: -200px;
+    left: -80px;
+    background-size: 200px 200px;
+}
+.contact-weixin:hover ::after {
+    background-image: url(./image/wechat.png);
+}
+.contact-qq:hover ::after {
+    background-image: url(./image/qq.png);
+}
+.nav-bottom {
+    list-style: none;
+}
 @media only screen and (min-width: 992px) {
     .flex-lg {
         padding: 10px;
@@ -340,6 +401,10 @@
     .skew-cell:nth-of-type(even)>:last-child {
         right: 0;
     }
+    .skew-cell img {
+        transform: skew(30deg);
+        height: 300px;
+    }
     .skew-cell:nth-of-type(even)>:first-child, .skew-cell:nth-of-type(odd)>:last-child {
         z-index: 1;
         width: calc(50% + 173.2px);
@@ -350,6 +415,12 @@
     }
     .skew-cell:nth-of-type(odd)>:last-child {
         margin-left: calc(50% - 173.2px);
+    }
+    .contact {
+        position: relative;
+    }
+    .contact-weixin:hover ::after, .contact-qq:hover ::after {
+        left: -80px;
     }
 }
 
@@ -428,6 +499,7 @@
         align-items: center;
         flex-direction: column;
         transition: all 1s ease 0s;
+        transform: none!important;
     }
     .block-left {
         height: 20rem;
@@ -461,7 +533,13 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding: 1rem;
+        height: 50vw;
+    }
+    .skew-cell p, .skew-cell h3 {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+    .skew-cell img {
         height: 50vw;
     }
     .skew-cell h3 {
@@ -470,13 +548,31 @@
     .skew-cell p {
         font-size: .75rem;
     }
-    .join-panel {
+    /* .join-panel {
         height: 16rem;
-    }
+    } */
     .join-button {
-        width: 4rem;
-        height: 2rem;
-        font-size: 1.25rem;
-        line-height: 2rem;
+        width: 6rem;
+        height: 3rem;
+        font-size: 1.875rem;
+        line-height: 3rem;
+    }
+    .footer {
+        font-size: 1.75rem;
+    }
+    .left-cell {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .left-cell .title {
+        text-align: center;
+    }
+    .contact-weixin:hover ::after, .contact-qq:hover ::after {
+        left: -20px;
+    }
+    .footer .license {
+        font-size: 1.2rem;
+        white-space: pre-line;
     }
 }
