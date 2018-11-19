@@ -619,7 +619,8 @@
         text-align: center;
     }
     .contact-weixin:hover ::after, .contact-qq:hover ::after {
-        left: -20px;
+        left: 50%;
+        transform: translateX(-50%);
     }
     .footer .license {
         font-size: 1.2rem;
