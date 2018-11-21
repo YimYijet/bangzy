@@ -8,32 +8,4 @@ html{font-size:16px}
 @media screen and (min-width:750px) and (max-width:800px){html{font-size:23.5px}}
 @media screen and (min-width:800px) and (max-width:992px){html{font-size:25px}}
 
-a {
-    color: inherit;
-    &:hover {
-        color: inherit;
-    }
-}
-
-.to-top {
-    display: none;
-    font-size: 40px;
-    position: fixed;
-    bottom: 50px;
-    right: 50px;
-    text-align: center;
-    line-height: 40px;
-    background: #999;
-    color: var(--white);
-    border-radius: 4px;
-    z-index: 1090;
-    a {
-        display: inline-block;
-        width: 50px;
-        height: 50px;
-    }
-    &:hover {
-        background: #777;
-    }
-}
-
+$maxWidth: 1200px;

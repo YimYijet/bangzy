@@ -93,24 +93,6 @@ a:hover {
         border-color: #2a2a2a;
         color: #2a2a2a;
     }
-    /* .navbar-nav .nav-item:hover ::after, .navbar-nav .nav-item:hover ::before {
-        animation: hover .5s forwards;
-    } */
-    /* .navbar-nav .nav-item ::after, .navbar-nav .nav-item ::before {
-        content: '';
-        height: 3px;
-        top: -0.5rem;
-        position: absolute;
-        text-align: center;
-        display: block;
-        background: #2db7f5;
-    }
-    .navbar-nav .nav-item ::after {
-        right: 50%;
-    }
-    .navbar-nav .nav-item ::before {
-        left: 50%;
-    } */
     .header {
         background: transparent;
     }
