@@ -244,6 +244,69 @@
 
 	};
 
+	var drawMap = function() {
+		// 地图
+		function getRegions(data) {
+			var result = [];
+			for (var i = 0; i < data.length; i++) {
+				result.push({
+					name: data[i],
+					itemStyle: {
+						areaColor: '#a6c84c',
+						borderColor: '#7687a2'
+					},
+					emphasis:{
+						label: {
+							show: false,
+							color: '#fff'
+						},
+						itemStyle: {
+							areaColor: '#46bee9',
+						},
+					},
+				});
+			}
+			return result;
+		}
+		var mapChart = echarts.init(document.getElementById('distribution')), data = ['江苏', '山东', '河南', '安徽']
+		var option = {
+			backgroundColor: '#fff',
+			legend: {
+				orient: 'vertical',
+				left: '50%',
+				data: ['业务范围', '拓展中'],
+				textStyle: {
+					color: '#fff'
+				}
+			},
+			geo: {
+				map: 'china',
+				roam: false,
+				itemStyle: {
+					areacolor: '#fff',
+					color: '#fff',
+					borderColor: '#404a59'
+				},
+				emphasis:{
+					label: {
+						show: false,
+						color: '#fff'
+					},
+					itemStyle: {
+						// areaColor: '#2a333d',
+					},
+				},
+				regions: getRegions(data),
+				silent: true
+			},
+			color: ['#e0ffff', '#006edd']
+		};
+		mapChart.setOption(option);
+		$(window).resize(function() {
+				mapChart.resize();
+			}
+		)
+	}
 	
 	$(function(){
 		mobileMenuOutsideClick();
@@ -257,6 +320,7 @@
 		counter();
 		parallax();
 		testimonialCarousel();
+		drawMap();
 	});
 
 

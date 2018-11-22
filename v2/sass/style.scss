@@ -572,6 +572,13 @@ h1, h2, h3, h4, h5, h6, figure {
 	padding-bottom: 7em;
 }
 
+// 地图
+#distribution {
+	height: 584.38px;
+	@media screen and (max-width: $screen-sm) {
+		height: 100vw;
+	}
+}
 
 // Counters
 .fh5co-counters {
@@ -590,6 +597,19 @@ h1, h2, h3, h4, h5, h6, figure {
 		width: 100%;
 		font-weight: 400;
 		margin-bottom: .3em;
+	}
+	.fh5co-counter-inline {
+		font-size: 44px;
+		display: inline-block;
+		color: rgba($brand-black,.7);
+		font-family: $font-primary;
+		font-weight: 400;
+		margin-bottom: .3em;
+		margin-right: .3em;
+	}
+	.fh5co-counter-inline-label {
+		font-size: 30px;
+		color: #828282;
 	}
 	.fh5co-counter-label {
 		color: rgba($brand-black,.5);
@@ -837,7 +857,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 #fh5co-testimonial {
-	background: #efefef;
+	// background: #efefef;
 	.testimony-slide{
 		// display: none;
 		text-align: center;
