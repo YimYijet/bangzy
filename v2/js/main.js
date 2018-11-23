@@ -246,6 +246,9 @@
 
 	var drawMap = function() {
 		// 地图
+		if (!document.getElementById('distribution')) {
+			return;
+		}
 		function getRegions(data) {
 			var result = [];
 			for (var i = 0; i < data.length; i++) {

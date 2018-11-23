@@ -1,3 +1,4 @@
+@import "http://at.alicdn.com/t/font_932194_xkiy1dwbdw.css";
 @font-face {
   font-family: 'icomoon';
   src: url("../fonts/icomoon/icomoon.eot?srf3rx");
@@ -41,12 +42,12 @@ body {
       background: rgba(0, 0, 0, 0.7);
       content: ""; }
 
-a {
+a, .fh5co-contact-icons li a {
   color: #EA9215;
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s; }
-  a:hover, a:active, a:focus {
+  a:hover, .fh5co-contact-icons li a:hover, a:active, .fh5co-contact-icons li a:active, a:focus, .fh5co-contact-icons li a:focus {
     color: #EA9215;
     outline: none;
     text-decoration: none; }
@@ -111,7 +112,7 @@ h1, h2, h3, h4, h5, h6, figure {
     font-family: "Work Sans", Arial, sans-serif; }
     .fh5co-nav #fh5co-logo a span {
       color: #EA9215; }
-  .fh5co-nav a {
+  .fh5co-nav a, .fh5co-nav .fh5co-contact-icons li a, .fh5co-contact-icons li .fh5co-nav a {
     padding: 5px 10px;
     color: #fff; }
   @media screen and (max-width: 768px) {
@@ -207,7 +208,7 @@ h1, h2, h3, h4, h5, h6, figure {
           -webkit-box-shadow: 0px 14px 20px -9px rgba(0, 0, 0, 0.75);
           -moz-box-shadow: 0px 14px 20px -9px rgba(0, 0, 0, 0.75);
           box-shadow: 0px 14px 20px -9px rgba(0, 0, 0, 0.75); }
-      .fh5co-nav ul li.active > a {
+      .fh5co-nav ul li.active > a, .fh5co-nav ul .fh5co-contact-icons li.active > a {
         color: #fff !important; }
 
 #fh5co-header,
@@ -230,7 +231,7 @@ h1, h2, h3, h4, h5, h6, figure {
   @media screen and (max-width: 992px) {
     .fh5co-video {
       height: 450px; } }
-  .fh5co-video a {
+  .fh5co-video a, .fh5co-video .fh5co-contact-icons li a, .fh5co-contact-icons li .fh5co-video a {
     z-index: 1001;
     position: absolute;
     top: 50%;
@@ -338,7 +339,7 @@ h1, h2, h3, h4, h5, h6, figure {
   #fh5co-counter .display-tc h1,
   .fh5co-cover .display-tc h1 {
     margin-bottom: 20px;
-    font-size: 54px;
+    font-size: 48px;
     line-height: 1.3;
     font-weight: 300; }
     @media screen and (max-width: 768px) {
@@ -432,6 +433,16 @@ h1, h2, h3, h4, h5, h6, figure {
     #fh5co-footer {
       padding: 3em 0; } }
 
+#fh5co-footer {
+  padding-bottom: 0; }
+  #fh5co-footer .num {
+    margin: 0;
+    font-size: 15px;
+    padding-right: 10px;
+    margin-right: 5px;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    letter-spacing: 0px; }
+
 #fh5co-counter {
   padding: 3em 0;
   clear: both; }
@@ -514,10 +525,10 @@ h1, h2, h3, h4, h5, h6, figure {
         font-size: 18px;
         color: #EA9215; }
 
-.fh5co-social-icons {
+.fh5co-social-icons, .fh5co-contact-icons {
   margin: 0;
   padding: 0; }
-  .fh5co-social-icons li {
+  .fh5co-social-icons li, .fh5co-contact-icons li {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -525,7 +536,7 @@ h1, h2, h3, h4, h5, h6, figure {
     display: inline-block;
     zoom: 1;
     *display: inline; }
-    .fh5co-social-icons li a {
+    .fh5co-social-icons li a, .fh5co-contact-icons li a {
       display: -moz-inline-stack;
       display: inline-block;
       zoom: 1;
@@ -533,8 +544,33 @@ h1, h2, h3, h4, h5, h6, figure {
       color: #EA9215;
       padding-left: 10px;
       padding-right: 10px; }
-      .fh5co-social-icons li a i {
+      .fh5co-social-icons li a i, .fh5co-contact-icons li a i {
         font-size: 20px; }
+
+.fh5co-contact-icons {
+  margin: 10px 0; }
+  .fh5co-contact-icons li:first-child a {
+    padding-left: 0; }
+  .fh5co-contact-icons li:last-child a {
+    padding-right: 0; }
+  .fh5co-contact-icons li a {
+    color: #ea921599; }
+    .fh5co-contact-icons li a i {
+      font-size: 32px; }
+    .fh5co-contact-icons li a img {
+      display: none;
+      position: absolute;
+      width: 200px;
+      top: -100%;
+      -moz-transform: translateX(-50%);
+      -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      -o-transform: translateX(-50%);
+      transform: translateX(-50%); }
+    .fh5co-contact-icons li a:hover {
+      color: #ea9215; }
+      .fh5co-contact-icons li a:hover img {
+        display: initial; }
 
 .fh5co-contact-info ul {
   padding: 0;
@@ -577,7 +613,7 @@ h1, h2, h3, h4, h5, h6, figure {
 
 .fh5co-project {
   margin-bottom: 30px; }
-  .fh5co-project > a {
+  .fh5co-project > a, .fh5co-contact-icons li .fh5co-project > a {
     display: block;
     color: #000;
     position: relative;
@@ -591,7 +627,7 @@ h1, h2, h3, h4, h5, h6, figure {
       -webkit-transition: 0.5s;
       -o-transition: 0.5s;
       transition: 0.5s; }
-    .fh5co-project > a:after {
+    .fh5co-project > a:after, .fh5co-contact-icons li .fh5co-project > a:after {
       opacity: 0;
       visibility: hidden;
       content: "";
@@ -628,15 +664,15 @@ h1, h2, h3, h4, h5, h6, figure {
     .fh5co-project > a span {
       font-size: 14px;
       bottom: 20px; }
-    .fh5co-project > a:hover {
+    .fh5co-project > a:hover, .fh5co-contact-icons li .fh5co-project > a:hover {
       -webkit-box-shadow: 0px 18px 71px -10px rgba(0, 0, 0, 0.75);
       -moz-box-shadow: 0px 18px 71px -10px rgba(0, 0, 0, 0.75);
       box-shadow: 0px 18px 71px -10px rgba(0, 0, 0, 0.75); }
-      .fh5co-project > a:hover:after {
+      .fh5co-project > a:hover:after, .fh5co-contact-icons li .fh5co-project > a:hover:after {
         opacity: 1;
         visibility: visible; }
         @media screen and (max-width: 768px) {
-          .fh5co-project > a:hover:after {
+          .fh5co-project > a:hover:after, .fh5co-contact-icons li .fh5co-project > a:hover:after {
             opacity: 0;
             visibility: hidden; } }
       .fh5co-project > a:hover h3, .fh5co-project > a:hover span {
@@ -863,7 +899,7 @@ h1, h2, h3, h4, h5, h6, figure {
 
 .fh5co-blog {
   margin-bottom: 60px; }
-  .fh5co-blog > a {
+  .fh5co-blog > a, .fh5co-contact-icons li .fh5co-blog > a {
     display: block;
     position: relative;
     -webkit-transition: 0.5s;
@@ -1044,13 +1080,13 @@ h1, h2, h3, h4, h5, h6, figure {
       padding: 0;
       margin: 0;
       list-style: none; }
-      #fh5co-offcanvas ul li > ul {
+      #fh5co-offcanvas ul li > ul, #fh5co-offcanvas ul .fh5co-contact-icons li > ul {
         padding-left: 20px;
         display: none; }
-      #fh5co-offcanvas ul li.offcanvas-has-dropdown > a {
+      #fh5co-offcanvas ul li.offcanvas-has-dropdown > a, #fh5co-offcanvas ul .fh5co-contact-icons li.offcanvas-has-dropdown > a {
         display: block;
         position: relative; }
-        #fh5co-offcanvas ul li.offcanvas-has-dropdown > a:after {
+        #fh5co-offcanvas ul li.offcanvas-has-dropdown > a:after, #fh5co-offcanvas ul .fh5co-contact-icons li.offcanvas-has-dropdown > a:after {
           position: absolute;
           right: 0px;
           font-family: 'icomoon';
@@ -1096,7 +1132,7 @@ h1, h2, h3, h4, h5, h6, figure {
   .gototop.active {
     opacity: 1;
     visibility: visible; }
-  .gototop a {
+  .gototop a, .gototop .fh5co-contact-icons li a, .fh5co-contact-icons li .gototop a {
     width: 50px;
     height: 50px;
     display: table;
