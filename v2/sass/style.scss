@@ -98,7 +98,7 @@ $form-group-margin-bottom:       30px !default;
 @import 'bootstrap/variables';
 
 // 引入图标
-@import 'http://at.alicdn.com/t/font_932194_xkiy1dwbdw.css';
+@import 'http://at.alicdn.com/t/font_932194_p20h585kx8.css';
 
 
 /* =======================================================
@@ -643,7 +643,56 @@ h1, h2, h3, h4, h5, h6, figure {
 
 .mt{
 	margin-top: 70px;
-
+	.title {
+		@include flex;
+		justify-content: space-between;
+    	flex-wrap: wrap;
+		span {
+			font-size: 32px;
+			@media screen and (max-width: $screen-sm) {
+				font-size: 24px;
+			}
+		}
+		p {
+			width: 100%;
+			text-align: center;
+		}
+	}
+	.content {
+		margin-top: 7rem;
+		@media screen and (max-width: $screen-sm) {
+			margin-top: 3rem;
+		}
+		.download-wrap {
+			width: 210px;
+			height: 210px;
+			float: left;
+			padding: 0;
+			background: url(../images/qr-code-bg.png) no-repeat center center;
+			@media screen and (max-width: $screen-sm) {
+				margin-bottom: 3rem;
+				margin-left: 50%;
+    			@include translateX(-50%);
+			}
+			img {
+				padding: 10px;
+				margin: 7px;
+				background-color: #ececec;
+			}
+		}
+		.download-button {
+			@media screen and (max-width: $screen-sm) {
+				margin-left: 50%;
+				@include translateX(-50%);
+			}
+			a {
+				padding: 18px 36px;
+				@media screen and (max-width: $screen-sm) {
+					padding: 8px 20px;
+				}
+			}
+		}
+	}
 	h4{
 		position: relative;
 		padding-left: 40px;
@@ -1082,7 +1131,7 @@ h1, h2, h3, h4, h5, h6, figure {
 		width: 100%;
 	}
 	.blog-text {
-		margin-bottom: 30px;
+		// margin-bottom: 30px;
 		position: relative;
 		background: $brand-white;
 		width: 100%;
@@ -1640,5 +1689,27 @@ h1, h2, h3, h4, h5, h6, figure {
 .animate-box {
 	.js & {
 		opacity: 0;
+	}
+}
+
+.question-content {
+	@extend .mt;
+	&:first-child {
+		margin: 0;
+	}
+	.title {
+		@extend h4;
+		color: #333;
+		i {
+			@extend i;
+			font-size: 20px;
+		}
+	}
+	.indent {
+		text-indent: 2rem;
+	}
+	@media screen and (max-width: $screen-sm) {
+		padding-left: 15px;
+		padding-right: 15px;
 	}
 }
