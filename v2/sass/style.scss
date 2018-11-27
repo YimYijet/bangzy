@@ -98,7 +98,7 @@ $form-group-margin-bottom:       30px !default;
 @import 'bootstrap/variables';
 
 // 引入图标
-@import 'http://at.alicdn.com/t/font_932194_p20h585kx8.css';
+@import 'http://at.alicdn.com/t/font_932194_bd8mlkw9y8s.css';
 
 
 /* =======================================================
@@ -681,6 +681,11 @@ h1, h2, h3, h4, h5, h6, figure {
 			}
 		}
 		.download-button {
+			@include flex();
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: center;
+			height: 164px;
 			@media screen and (max-width: $screen-sm) {
 				margin-left: 50%;
 				@include translateX(-50%);
